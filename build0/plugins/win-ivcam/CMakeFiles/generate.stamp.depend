@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+D:/Cmake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+D:/Cmake/share/cmake-3.17/Modules/FindPackageMessage.cmake
+D:/cplus/obs-studio/cmake/Modules/FindRSSDK.cmake
+D:/cplus/obs-studio/plugins/win-ivcam/CMakeLists.txt

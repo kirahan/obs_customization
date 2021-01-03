@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\obs-filters.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\color-correction-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\async-delay-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\gpu-delay.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\crop-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\scale-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\scroll-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\chroma-key-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\color-key-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\color-grade-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\sharpness-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\gain-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\noise-gate-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\mask-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\invert-audio-polarity.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\compressor-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\limiter-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\expander-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\luma-key-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\noise-suppress-filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\cplus\obs-studio\build\plugins\obs-filters\config\obs-filters-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\cplus\obs-studio\plugins\obs-filters\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\cplus\obs-studio\build\plugins\obs-filters\obs-filters.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{460C01EF-AEE7-35F1-A026-942F52C87BEA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7E19D42B-3A70-3B10-82CC-9C9D5FEB9694}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

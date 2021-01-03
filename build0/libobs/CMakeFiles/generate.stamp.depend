@@ -1,0 +1,16 @@
+# CMake generation dependency list for this directory.
+D:/Cmake/share/cmake-3.17/Modules/CheckIncludeFiles.cmake
+D:/Cmake/share/cmake-3.17/Modules/CheckLibraryExists.cmake
+D:/Cmake/share/cmake-3.17/Modules/CheckSymbolExists.cmake
+D:/Cmake/share/cmake-3.17/Modules/FindImageMagick.cmake
+D:/Cmake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+D:/Cmake/share/cmake-3.17/Modules/FindPackageMessage.cmake
+D:/Cmake/share/cmake-3.17/Modules/FindPkgConfig.cmake
+D:/cplus/obs-studio/cmake/Modules/FindFFmpeg.cmake
+D:/cplus/obs-studio/cmake/Modules/FindThreads.cmake
+D:/cplus/obs-studio/cmake/Modules/FindZLIB.cmake
+D:/cplus/obs-studio/cmake/winrc/obs-module.rc.in
+D:/cplus/obs-studio/libobs/CMakeLists.txt
+D:/cplus/obs-studio/libobs/LibObsConfig.cmake.in
+D:/cplus/obs-studio/libobs/LibObsConfigVersion.cmake.in
+D:/cplus/obs-studio/libobs/obsconfig.h.in

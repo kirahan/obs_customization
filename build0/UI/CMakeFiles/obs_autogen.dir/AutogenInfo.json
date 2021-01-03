@@ -1,0 +1,566 @@
+{
+	"BUILD_DIR" : "D:/cplus/obs-studio/build/UI/obs_autogen",
+	"CMAKE_BINARY_DIR" : "D:/cplus/obs-studio/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/cplus/obs-studio/build/UI",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/cplus/obs-studio/UI",
+	"CMAKE_EXECUTABLE" : "D:/Cmake/bin/cmake.exe",
+	"CMAKE_SOURCE_DIR" : "D:/cplus/obs-studio",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"D:/cplus/obs-studio/UI/adv-audio-control.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_adv-audio-control.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/audio-encoders.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_audio-encoders.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/auth-base.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_auth-base.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/balance-slider.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_balance-slider.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/clickable-label.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_clickable-label.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/combobox-ignorewheel.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_combobox-ignorewheel.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/context-bar-controls.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_context-bar-controls.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/crash-report.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_crash-report.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/display-helpers.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_display-helpers.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/double-slider.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_double-slider.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/expand-checkbox.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_expand-checkbox.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/focus-list.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_focus-list.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/horizontal-scroll-area.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_horizontal-scroll-area.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/hotkey-edit.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_hotkey-edit.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/importers/importers.hpp",
+			"Mu",
+			"MKXHPDFLPP/moc_importers.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/item-widget-helpers.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_item-widget-helpers.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/locked-checkbox.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_locked-checkbox.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/log-viewer.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_log-viewer.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/media-controls.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_media-controls.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/media-slider.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_media-slider.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/menu-button.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_menu-button.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/mute-checkbox.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_mute-checkbox.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/obs-app.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_obs-app.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/obs-proxy-style.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_obs-proxy-style.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/platform.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_platform.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/properties-view.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_properties-view.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/properties-view.moc.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_properties-view.moc.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/qt-display.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_qt-display.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/qt-wrappers.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_qt-wrappers.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/record-button.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_record-button.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/remote-text.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_remote-text.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/scene-tree.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_scene-tree.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/screenshot-obj.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_screenshot-obj.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/slider-absoluteset-style.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_slider-absoluteset-style.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/slider-ignorewheel.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_slider-ignorewheel.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/source-label.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_source-label.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/source-tree.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_source-tree.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/spinbox-ignorewheel.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_spinbox-ignorewheel.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/ui-validation.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_ui-validation.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/url-push-button.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_url-push-button.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/vertical-scroll-area.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_vertical-scroll-area.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/visibility-checkbox.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_visibility-checkbox.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/visibility-item-widget.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_visibility-item-widget.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/volume-control.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_volume-control.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/win-update/update-window.hpp",
+			"Mu",
+			"4OBZZPDMBP/moc_update-window.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/win-update/win-update-helpers.hpp",
+			"Mu",
+			"4OBZZPDMBP/moc_win-update-helpers.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/win-update/win-update.hpp",
+			"Mu",
+			"4OBZZPDMBP/moc_win-update.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-about.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-about.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-adv-audio.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-adv-audio.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-auto-config.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-auto-config.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-filters.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-filters.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-interaction.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-interaction.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-main-outputs.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-main-outputs.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-main.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-main.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-preview.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-preview.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-properties.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-properties.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-settings.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-settings.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-source-select.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-source-select.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-stats.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-stats.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-status-bar.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-status-bar.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-transform.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-basic-transform.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-dock.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-dock.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-importer.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-importer.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-log-reply.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-log-reply.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-main.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-main.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-namedialog.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-namedialog.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-projector.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-projector.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/UI/window-remux.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_window-remux.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/deps/json11/json11.hpp",
+			"Mu",
+			"4I57ZF74CN/moc_json11.cpp"
+		],
+		[
+			"D:/cplus/obs-studio/deps/libff/libff/ff-util.h",
+			"Mu",
+			"3J2FEQEIGF/moc_ff-util.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "D:/cplus/obs-studio/build/UI/obs_autogen/include",
+	"INCLUDE_DIR_Debug" : "D:/cplus/obs-studio/build/UI/obs_autogen/include_Debug",
+	"INCLUDE_DIR_MinSizeRel" : "D:/cplus/obs-studio/build/UI/obs_autogen/include_MinSizeRel",
+	"INCLUDE_DIR_RelWithDebInfo" : "D:/cplus/obs-studio/build/UI/obs_autogen/include_RelWithDebInfo",
+	"INCLUDE_DIR_Release" : "D:/cplus/obs-studio/build/UI/obs_autogen/include_Release",
+	"MOC_COMPILATION_FILE" : "D:/cplus/obs-studio/build/UI/obs_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"DL_D3D11=\"libobs-d3d11.dll\"",
+		"DL_D3D9=\"\"",
+		"DL_OPENGL=\"libobs-opengl.dll\"",
+		"HAVE_OBSCONFIG_H",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
+		"QT_SVG_LIB",
+		"QT_WIDGETS_LIB",
+		"QT_XML_LIB",
+		"UNICODE",
+		"WIN32",
+		"_CRT_NONSTDC_NO_WARNINGS",
+		"_CRT_SECURE_NO_WARNINGS",
+		"_UNICODE"
+	],
+	"MOC_DEFINITIONS_Debug" : 
+	[
+		"DL_D3D11=\"libobs-d3d11.dll\"",
+		"DL_D3D9=\"\"",
+		"DL_OPENGL=\"libobs-opengl.dll\"",
+		"HAVE_OBSCONFIG_H",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_SVG_LIB",
+		"QT_WIDGETS_LIB",
+		"QT_XML_LIB",
+		"UNICODE",
+		"WIN32",
+		"_CRT_NONSTDC_NO_WARNINGS",
+		"_CRT_SECURE_NO_WARNINGS",
+		"_UNICODE"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"D:/cplus/obs-studio/build/UI",
+		"D:/cplus/obs-studio/UI",
+		"D:/cplus/obs/dependencies2019/win64/include",
+		"D:/cplus/obs-studio/deps/blake2/src",
+		"D:/cplus/obs-studio/build/config",
+		"D:/cplus/obs-studio/deps/w32-pthreads",
+		"D:/cplus/obs-studio/UI/obs-frontend-api",
+		"D:/cplus/obs-studio/libobs",
+		"D:/cplus/obs-studio/deps/libff",
+		"D:/cplus/obs-studio/deps/json11",
+		"D:/qt/5.12.2/msvc2017_64/include",
+		"D:/qt/5.12.2/msvc2017_64/include/QtWidgets",
+		"D:/qt/5.12.2/msvc2017_64/include/QtGui",
+		"D:/qt/5.12.2/msvc2017_64/include/QtANGLE",
+		"D:/qt/5.12.2/msvc2017_64/include/QtCore",
+		"D:/qt/5.12.2/msvc2017_64/mkspecs/win32-msvc",
+		"D:/qt/5.12.2/msvc2017_64/include/QtSvg",
+		"D:/qt/5.12.2/msvc2017_64/include/QtXml"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : [],
+	"MOC_PREDEFS_FILE" : "",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"D:/cplus/obs-studio/build/UI/qrc_obs.cpp",
+		"D:/cplus/obs-studio/build/UI/ui_AutoConfigStartPage.h",
+		"D:/cplus/obs-studio/build/UI/ui_AutoConfigStreamPage.h",
+		"D:/cplus/obs-studio/build/UI/ui_AutoConfigTestPage.h",
+		"D:/cplus/obs-studio/build/UI/ui_AutoConfigVideoPage.h",
+		"D:/cplus/obs-studio/build/UI/ui_ColorSelect.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSAbout.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSBasic.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSBasicFilters.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSBasicInteraction.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSBasicSettings.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSBasicSourceSelect.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSBasicTransform.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSExtraBrowsers.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSImporter.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSLogReply.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSRemux.h",
+		"D:/cplus/obs-studio/build/UI/ui_OBSUpdate.h",
+		"D:/cplus/obs-studio/build/UI/ui_browser-source-toolbar.h",
+		"D:/cplus/obs-studio/build/UI/ui_color-source-toolbar.h",
+		"D:/cplus/obs-studio/build/UI/ui_device-select-toolbar.h",
+		"D:/cplus/obs-studio/build/UI/ui_game-capture-toolbar.h",
+		"D:/cplus/obs-studio/build/UI/ui_image-source-toolbar.h",
+		"D:/cplus/obs-studio/build/UI/ui_media-controls.h",
+		"D:/cplus/obs-studio/build/UI/ui_text-source-toolbar.h"
+	],
+	"MULTI_CONFIG" : true,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE_Debug" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/ParseCache_Debug.txt",
+	"PARSE_CACHE_FILE_MinSizeRel" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/ParseCache_MinSizeRel.txt",
+	"PARSE_CACHE_FILE_RelWithDebInfo" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/ParseCache_RelWithDebInfo.txt",
+	"PARSE_CACHE_FILE_Release" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/ParseCache_Release.txt",
+	"QT_MOC_EXECUTABLE" : "D:/qt/5.12.2/msvc2017_64/bin/moc.exe",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 12,
+	"SETTINGS_FILE" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE_Debug" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/AutogenUsed_Debug.txt",
+	"SETTINGS_FILE_MinSizeRel" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/AutogenUsed_MinSizeRel.txt",
+	"SETTINGS_FILE_RelWithDebInfo" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
+	"SETTINGS_FILE_Release" : "D:/cplus/obs-studio/build/UI/CMakeFiles/obs_autogen.dir/AutogenUsed_Release.txt",
+	"SOURCES" : 
+	[
+		[ "D:/cplus/obs-studio/UI/adv-audio-control.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/api-interface.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/audio-encoders.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/auth-base.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/combobox-ignorewheel.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/context-bar-controls.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/crash-report.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/double-slider.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/focus-list.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/horizontal-scroll-area.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/hotkey-edit.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/importers/classic.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/importers/importers.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/importers/sl.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/importers/studio.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/importers/xsplit.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/item-widget-helpers.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/locked-checkbox.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/log-viewer.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/media-controls.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/media-slider.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/menu-button.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/obs-app.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/obs-proxy-style.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/platform-windows.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/properties-view.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/qt-display.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/qt-wrappers.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/record-button.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/remote-text.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/scene-tree.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/slider-absoluteset-style.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/slider-ignorewheel.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/source-label.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/source-tree.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/spinbox-ignorewheel.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/ui-validation.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/url-push-button.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/vertical-scroll-area.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/visibility-checkbox.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/visibility-item-widget.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/volume-control.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/win-update/update-window.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/win-update/win-update-helpers.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/win-update/win-update.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-about.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-adv-audio.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-auto-config-test.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-auto-config.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-filters.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-interaction.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-main-browser.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-main-dropfiles.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-main-icons.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-main-outputs.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-main-profiles.cpp", "Mu" ],
+		[
+			"D:/cplus/obs-studio/UI/window-basic-main-scene-collections.cpp",
+			"Mu"
+		],
+		[ "D:/cplus/obs-studio/UI/window-basic-main-screenshot.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-main-transitions.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-main.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-preview.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-properties.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-settings-stream.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-settings.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-source-select.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-stats.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-status-bar.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-basic-transform.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-dock.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-importer.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-log-reply.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-namedialog.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-projector.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/UI/window-remux.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/deps/json11/json11.cpp", "Mu" ],
+		[ "D:/cplus/obs-studio/deps/libff/libff/ff-util.c", "Mu" ]
+	],
+	"VERBOSITY" : 0
+}

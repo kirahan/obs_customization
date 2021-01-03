@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7CA4C688-7DA2-3A69-88C3-3EF81D992E5A}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\cplus\obs-studio\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/cplus/obs-studio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeParseArguments.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.17\Modules\CPack.cmake;D:\Cmake\share\cmake-3.17\Modules\CPackComponent.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.17\Templates\CPackConfig.cmake.in;D:\cplus\obs-studio\UI\obs.rc.in;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCXXCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeRCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeSystem.cmake;D:\cplus\obs-studio\cmake\ALL_BUILD.vcxproj.user.in;D:\cplus\obs-studio\cmake\Modules\CopyMSVCBins.cmake;D:\cplus\obs-studio\cmake\Modules\ObsCpack.cmake;D:\cplus\obs-studio\cmake\Modules\ObsHelpers.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\cplus\obs-studio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/cplus/obs-studio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeParseArguments.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.17\Modules\CPack.cmake;D:\Cmake\share\cmake-3.17\Modules\CPackComponent.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.17\Templates\CPackConfig.cmake.in;D:\cplus\obs-studio\UI\obs.rc.in;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCXXCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeRCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeSystem.cmake;D:\cplus\obs-studio\cmake\ALL_BUILD.vcxproj.user.in;D:\cplus\obs-studio\cmake\Modules\CopyMSVCBins.cmake;D:\cplus\obs-studio\cmake\Modules\ObsCpack.cmake;D:\cplus\obs-studio\cmake\Modules\ObsHelpers.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\cplus\obs-studio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/cplus/obs-studio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeParseArguments.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.17\Modules\CPack.cmake;D:\Cmake\share\cmake-3.17\Modules\CPackComponent.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.17\Templates\CPackConfig.cmake.in;D:\cplus\obs-studio\UI\obs.rc.in;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCXXCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeRCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeSystem.cmake;D:\cplus\obs-studio\cmake\ALL_BUILD.vcxproj.user.in;D:\cplus\obs-studio\cmake\Modules\CopyMSVCBins.cmake;D:\cplus\obs-studio\cmake\Modules\ObsCpack.cmake;D:\cplus\obs-studio\cmake\Modules\ObsHelpers.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\cplus\obs-studio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/cplus/obs-studio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeParseArguments.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Cmake\share\cmake-3.17\Modules\CPack.cmake;D:\Cmake\share\cmake-3.17\Modules\CPackComponent.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXCompilerFlag.cmake;D:\Cmake\share\cmake-3.17\Modules\CheckCXXSourceCompiles.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Cmake\share\cmake-3.17\Templates\CPackConfig.cmake.in;D:\cplus\obs-studio\UI\obs.rc.in;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeCXXCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeRCCompiler.cmake;D:\cplus\obs-studio\build\CMakeFiles\3.17.20200511-g8787079\CMakeSystem.cmake;D:\cplus\obs-studio\cmake\ALL_BUILD.vcxproj.user.in;D:\cplus\obs-studio\cmake\Modules\CopyMSVCBins.cmake;D:\cplus\obs-studio\cmake\Modules\ObsCpack.cmake;D:\cplus\obs-studio\cmake\Modules\ObsHelpers.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;D:\qt\5.12.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\cplus\obs-studio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\cplus\obs-studio\build\ZERO_CHECK.vcxproj">
+      <Project>{1858EE3D-1097-33C1-B572-A908693DEF62}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\obs-scripting\obspython\_obspython.vcxproj">
+      <Project>{08468A42-403C-39D7-A582-822B0BA5B966}</Project>
+      <Name>_obspython</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\blake2\blake2.vcxproj">
+      <Project>{6F43796D-C603-3E4A-BD8E-6DCA2C8AF8D1}</Project>
+      <Name>blake2</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\libcaption\caption.vcxproj">
+      <Project>{E072B067-A155-3A8F-8273-8C0C6FD26267}</Project>
+      <Name>caption</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\coreaudio-encoder\coreaudio-encoder.vcxproj">
+      <Project>{16F04625-E45B-397F-A52B-504E0B935E67}</Project>
+      <Name>coreaudio-encoder</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\UI\frontend-plugins\decklink-captions\decklink-captions.vcxproj">
+      <Project>{4AA97E89-074C-33F2-BE46-8398E6FE82C9}</Project>
+      <Name>decklink-captions</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\UI\frontend-plugins\decklink-output-ui\decklink-ouput-ui.vcxproj">
+      <Project>{3E307BD5-3711-3595-9C55-DCBC3DB9603F}</Project>
+      <Name>decklink-ouput-ui</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\enc-amf\enc-amf.vcxproj">
+      <Project>{EA6E8614-E5B8-3E3C-9F5E-41E043FADC0C}</Project>
+      <Name>enc-amf</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\enc-amf\amf-test\enc-amf-test.vcxproj">
+      <Project>{7368542D-0BD2-3BB3-A1FC-F4786245E80C}</Project>
+      <Name>enc-amf-test</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\file-updater\file-updater.vcxproj">
+      <Project>{8A1CCC83-060D-395E-83C1-83AF3DD8F5A1}</Project>
+      <Name>file-updater</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\UI\frontend-plugins\frontend-tools\frontend-tools.vcxproj">
+      <Project>{36ABB409-9F1F-30F8-892A-1B0B4409A178}</Project>
+      <Name>frontend-tools</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\win-capture\get-graphics-offsets\get-graphics-offsets.vcxproj">
+      <Project>{5729E229-9767-38AF-B12B-579951CA437B}</Project>
+      <Name>get-graphics-offsets</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\glad\glad.vcxproj">
+      <Project>{E32AF50A-3B17-3D9D-8D51-6C5CE61F2BCC}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\win-capture\graphics-hook\graphics-hook.vcxproj">
+      <Project>{3067F661-21CB-3880-BFE1-85A20E5BC71D}</Project>
+      <Name>graphics-hook</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\image-source\image-source.vcxproj">
+      <Project>{85045BE8-D963-39BD-A033-589E9933F9C8}</Project>
+      <Name>image-source</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\win-capture\inject-helper\inject-helper.vcxproj">
+      <Project>{41CF0628-CDBA-3531-BCB5-292818470F2B}</Project>
+      <Name>inject-helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\ipc-util\ipc-util.vcxproj">
+      <Project>{9374150D-DD2F-3D6C-91CD-FC7330937E96}</Project>
+      <Name>ipc-util</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\jansson\jansson.vcxproj">
+      <Project>{7B205548-B429-3DEE-8BEB-4269D33108F4}</Project>
+      <Name>jansson</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\libobs\libobs.vcxproj">
+      <Project>{A70F00CC-EADA-3D3B-80AE-5C5A9049670C}</Project>
+      <Name>libobs</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\libobs-d3d11\libobs-d3d11.vcxproj">
+      <Project>{EEDD0442-BD97-3E7F-96F6-FD78BBC58F52}</Project>
+      <Name>libobs-d3d11</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\libobs-opengl\libobs-opengl.vcxproj">
+      <Project>{E54FA3C4-939F-3449-98B2-BB3742CE5A46}</Project>
+      <Name>libobs-opengl</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\libobs-winrt\libobs-winrt.vcxproj">
+      <Project>{4CE42C61-A811-30F6-943D-14C94FF39F7E}</Project>
+      <Name>libobs-winrt</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\lzma\lzma.vcxproj">
+      <Project>{140AE3F0-5B18-3186-B0C9-40673072CCE3}</Project>
+      <Name>lzma</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\media-playback\media-playback.vcxproj">
+      <Project>{58212474-3BBF-3ABF-8C7F-AC1A8B6DDD7D}</Project>
+      <Name>media-playback</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\UI\obs.vcxproj">
+      <Project>{7CD0FA9D-1A43-39F2-B592-AD27037D68D4}</Project>
+      <Name>obs</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-ffmpeg\obs-ffmpeg.vcxproj">
+      <Project>{53481F30-1F82-3456-90B0-19E063D31274}</Project>
+      <Name>obs-ffmpeg</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-ffmpeg\ffmpeg-mux\obs-ffmpeg-mux.vcxproj">
+      <Project>{4E144165-03A2-39F0-9679-458D254E263B}</Project>
+      <Name>obs-ffmpeg-mux</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-filters\obs-filters.vcxproj">
+      <Project>{EB95BF27-2330-347F-997B-57726D27FBCD}</Project>
+      <Name>obs-filters</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\UI\obs-frontend-api\obs-frontend-api.vcxproj">
+      <Project>{730B1F1F-26FA-3FE7-9239-FA79DDF7D4D9}</Project>
+      <Name>obs-frontend-api</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-outputs\obs-outputs.vcxproj">
+      <Project>{953CB75C-6BEF-32E7-8092-4A63BD95A725}</Project>
+      <Name>obs-outputs</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-qsv11\obs-qsv11.vcxproj">
+      <Project>{BB91EDBC-94A2-32F5-A226-0D737E9E56F8}</Project>
+      <Name>obs-qsv11</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\obs-scripting\obs-scripting.vcxproj">
+      <Project>{4820AC46-3001-3E97-B4CD-5EA1FD59E84F}</Project>
+      <Name>obs-scripting</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-text\obs-text.vcxproj">
+      <Project>{0A4120D3-4FF4-3395-8CD0-FE59A01046F3}</Project>
+      <Name>obs-text</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-transitions\obs-transitions.vcxproj">
+      <Project>{F9EB4478-E448-378F-9A44-B3A9B33C6036}</Project>
+      <Name>obs-transitions</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-vst\obs-vst.vcxproj">
+      <Project>{815A47AE-4705-3FBF-822B-F600B2B014C4}</Project>
+      <Name>obs-vst</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-x264\obs-x264.vcxproj">
+      <Project>{819792AA-ACA0-3699-AABB-8DAA4E688B50}</Project>
+      <Name>obs-x264</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-x264\obs-x264-test.vcxproj">
+      <Project>{8222CD2D-95AF-36E0-809D-0813F088E0D3}</Project>
+      <Name>obs-x264-test</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\obs-x264\obs-x264-util.vcxproj">
+      <Project>{2C86562A-840A-3F90-812E-2C68D75C42B2}</Project>
+      <Name>obs-x264-util</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\obs-scripting\obslua\obslua.vcxproj">
+      <Project>{B43F2AE8-EB96-34C6-B458-7CF7E721B5A7}</Project>
+      <Name>obslua</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\rtmp-services\rtmp-services.vcxproj">
+      <Project>{54F999F3-D7F5-3124-A280-C64F0E260020}</Project>
+      <Name>rtmp-services</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\text-freetype2\text-freetype2.vcxproj">
+      <Project>{3D1EE493-A058-3362-954E-1FD15AAF2259}</Project>
+      <Name>text-freetype2</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\w32-pthreads\w32-pthreads.vcxproj">
+      <Project>{5733F45A-8C55-3AE5-8E3F-51A789686E13}</Project>
+      <Name>w32-pthreads</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\win-capture\win-capture.vcxproj">
+      <Project>{792CC7E0-C209-33A7-846D-8C84E0AD061F}</Project>
+      <Name>win-capture</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\decklink\win\win-decklink.vcxproj">
+      <Project>{C0605B30-0559-368A-9CEE-EC7C8897F4BC}</Project>
+      <Name>win-decklink</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\win-dshow\win-dshow.vcxproj">
+      <Project>{9C451992-6F37-3BCE-9806-BCE6B9CA0C9E}</Project>
+      <Name>win-dshow</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\win-mf\win-mf.vcxproj">
+      <Project>{2B6DFA16-C8DC-319F-9FFD-EA06AAD82D46}</Project>
+      <Name>win-mf</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\plugins\win-wasapi\win-wasapi.vcxproj">
+      <Project>{864289D6-A1B7-3A4A-9D78-DBB4D20DE0ED}</Project>
+      <Name>win-wasapi</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1650,6 +1650,13 @@ static void AddProjectorMenuMonitors(QMenu *parent, QObject *target,
 
 void OBSBasic::OBSInit()
 {
+	ui->scenesDock->setVisible(false);
+	ui->scenesDock->hide();
+	ui->sourcesDock->setVisible(false);
+	ui->mixerDock->setVisible(false);
+	ui->transitionsDock->setVisible(false);
+	ui->controlsDock->setVisible(false);
+
 	ProfileScope("OBSBasic::OBSInit");
 
 	const char *sceneCollection = config_get_string(
@@ -7363,19 +7370,19 @@ void OBSBasic::on_resetUI_triggered()
 
 	QList<int> sizes{cx22_5, cx22_5, mixerSize, cx5, cx5};
 
-	ui->scenesDock->setVisible(true);
-	ui->sourcesDock->setVisible(true);
+	ui->scenesDock->setVisible(false);
+	ui->sourcesDock->setVisible(false);
 	ui->mixerDock->setVisible(true);
 	ui->transitionsDock->setVisible(true);
 	ui->controlsDock->setVisible(true);
-	statsDock->setVisible(false);
+	statsDock->setVisible(true);
 	statsDock->setFloating(true);
 
 	resizeDocks(docks, {cy, cy, cy, cy, cy}, Qt::Vertical);
 	resizeDocks(docks, sizes, Qt::Horizontal);
 #endif
 
-	activateWindow();
+	//activateWindow();
 }
 
 void OBSBasic::on_lockUI_toggled(bool lock)

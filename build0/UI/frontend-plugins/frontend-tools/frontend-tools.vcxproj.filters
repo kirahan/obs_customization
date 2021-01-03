@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\cplus\obs-studio\build\UI\frontend-plugins\frontend-tools\frontend-tools_autogen\mocs_compilation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\auto-scene-switcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\frontend-tools.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\output-timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\properties-view.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\horizontal-scroll-area.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\vertical-scroll-area.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\double-slider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\slider-ignorewheel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\combobox-ignorewheel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\spinbox-ignorewheel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\qt-wrappers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\scripts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\auto-scene-switcher-win.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions-handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions-mssapi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions-mssapi-stream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\cplus\obs-studio\build\config\frontend-tools-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\auto-scene-switcher.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\output-timer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\tool-helpers.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\properties-view.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\properties-view.moc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\horizontal-scroll-area.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\vertical-scroll-area.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\double-slider.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\slider-ignorewheel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\combobox-ignorewheel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\spinbox-ignorewheel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\qt-wrappers.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\scripts.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\build\UI\frontend-plugins\frontend-tools\ui_auto-scene-switcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\build\UI\frontend-plugins\frontend-tools\ui_output-timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\build\UI\frontend-plugins\frontend-tools\ui_scripts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\build\UI\frontend-plugins\frontend-tools\ui_captions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions-handler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions-mssapi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\captions-mssapi-stream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\forms\auto-scene-switcher.ui" />
+    <CustomBuild Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\forms\output-timer.ui" />
+    <CustomBuild Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\forms\scripts.ui" />
+    <CustomBuild Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\forms\captions.ui" />
+    <CustomBuild Include="D:\cplus\obs-studio\UI\frontend-plugins\frontend-tools\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\cplus\obs-studio\build\UI\frontend-plugins\frontend-tools\frontend-tools.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{460C01EF-AEE7-35F1-A026-942F52C87BEA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7E19D42B-3A70-3B10-82CC-9C9D5FEB9694}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

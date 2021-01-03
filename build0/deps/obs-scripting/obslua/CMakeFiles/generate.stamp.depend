@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+D:/Cmake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+D:/Cmake/share/cmake-3.17/Modules/FindPackageMessage.cmake
+D:/Cmake/share/cmake-3.17/Modules/FindSWIG.cmake
+D:/Cmake/share/cmake-3.17/Modules/UseSWIG.cmake
+D:/cplus/obs-studio/deps/obs-scripting/obslua/CMakeLists.txt

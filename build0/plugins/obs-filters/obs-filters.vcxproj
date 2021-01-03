@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EB95BF27-2330-347F-997B-57726D27FBCD}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>obs-filters</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obs-filters.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obs-filters</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obs-filters.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obs-filters</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">obs-filters.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">obs-filters</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">obs-filters.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">obs-filters</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG=1;_DEBUG=1;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR="Debug";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG=1;_DEBUG=1;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR=\"Debug\";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+D:\Cmake\bin\cmake.exe -E copy D:/cplus/obs-studio/build/plugins/obs-filters/Debug/obs-filters.dll D:/cplus/obs-studio/build/rundir/Debug/obs-plugins/64bit/obs-filters.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=Debug -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/Debug -DOUTPUT=D:/cplus/obs-studio/build/plugins/obs-filters/pdbs -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=Debug -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/Debug -DOUTPUT=D:/cplus/obs-studio/build/rundir/Debug/obs-plugins/64bit -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -E copy_directory D:/cplus/obs-studio/plugins/obs-filters/data D:/cplus/obs-studio/build/rundir/Debug/data/obs-plugins/obs-filters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libobs\Debug\obs.lib;..\..\deps\w32-pthreads\Debug\w32-pthreads.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\speexdsp.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\rnnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/cplus/obs-studio/build/plugins/obs-filters/Debug/obs-filters.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/cplus/obs-studio/build/plugins/obs-filters/Debug/obs-filters.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR="Release";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR=\"Release\";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+D:\Cmake\bin\cmake.exe -E copy D:/cplus/obs-studio/build/plugins/obs-filters/Release/obs-filters.dll D:/cplus/obs-studio/build/rundir/Release/obs-plugins/64bit/obs-filters.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=Release -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/Release -DOUTPUT=D:/cplus/obs-studio/build/plugins/obs-filters/pdbs -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=Release -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/Release -DOUTPUT=D:/cplus/obs-studio/build/rundir/Release/obs-plugins/64bit -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -E copy_directory D:/cplus/obs-studio/plugins/obs-filters/data D:/cplus/obs-studio/build/rundir/Release/data/obs-plugins/obs-filters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libobs\Release\obs.lib;..\..\deps\w32-pthreads\Release\w32-pthreads.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\speexdsp.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\rnnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/cplus/obs-studio/build/plugins/obs-filters/Release/obs-filters.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/cplus/obs-studio/build/plugins/obs-filters/Release/obs-filters.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR="MinSizeRel";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR=\"MinSizeRel\";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+D:\Cmake\bin\cmake.exe -E copy D:/cplus/obs-studio/build/plugins/obs-filters/MinSizeRel/obs-filters.dll D:/cplus/obs-studio/build/rundir/MinSizeRel/obs-plugins/64bit/obs-filters.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=MinSizeRel -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/MinSizeRel -DOUTPUT=D:/cplus/obs-studio/build/plugins/obs-filters/pdbs -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=MinSizeRel -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/MinSizeRel -DOUTPUT=D:/cplus/obs-studio/build/rundir/MinSizeRel/obs-plugins/64bit -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -E copy_directory D:/cplus/obs-studio/plugins/obs-filters/data D:/cplus/obs-studio/build/rundir/MinSizeRel/data/obs-plugins/obs-filters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libobs\MinSizeRel\obs.lib;..\..\deps\w32-pthreads\MinSizeRel\w32-pthreads.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\speexdsp.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\rnnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/cplus/obs-studio/build/plugins/obs-filters/MinSizeRel/obs-filters.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/cplus/obs-studio/build/plugins/obs-filters/MinSizeRel/obs-filters.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR="RelWithDebInfo";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;LIBSPEEXDSP_ENABLED;LIBRNNOISE_ENABLED;HAVE_OBSCONFIG_H;CMAKE_INTDIR=\"RelWithDebInfo\";obs_filters_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\cplus\obs\dependencies2019\win64\include;D:\cplus\obs-studio\build\plugins\obs-filters\config;D:\cplus\obs-studio\libobs;D:\cplus\obs-studio\build\config;D:\cplus\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+D:\Cmake\bin\cmake.exe -E copy D:/cplus/obs-studio/build/plugins/obs-filters/RelWithDebInfo/obs-filters.dll D:/cplus/obs-studio/build/rundir/RelWithDebInfo/obs-plugins/64bit/obs-filters.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=RelWithDebInfo -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/RelWithDebInfo -DOUTPUT=D:/cplus/obs-studio/build/plugins/obs-filters/pdbs -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -DCONFIG=RelWithDebInfo -DFNAME=obs-filters.dll -DINPUT=D:/cplus/obs-studio/build/plugins/obs-filters/RelWithDebInfo -DOUTPUT=D:/cplus/obs-studio/build/rundir/RelWithDebInfo/obs-plugins/64bit -P D:/cplus/obs-studio/cmake/copy_on_debug_helper.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+D:\Cmake\bin\cmake.exe -E copy_directory D:/cplus/obs-studio/plugins/obs-filters/data D:/cplus/obs-studio/build/rundir/RelWithDebInfo/data/obs-plugins/obs-filters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libobs\RelWithDebInfo\obs.lib;..\..\deps\w32-pthreads\RelWithDebInfo\w32-pthreads.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\speexdsp.lib;D:\cplus\obs\dependencies2019\win64\include\..\bin\rnnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/cplus/obs-studio/build/plugins/obs-filters/RelWithDebInfo/obs-filters.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/cplus/obs-studio/build/plugins/obs-filters/RelWithDebInfo/obs-filters.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\cplus\obs-studio\plugins\obs-filters\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/cplus/obs-studio/plugins/obs-filters/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/plugins/obs-filters/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPkgConfig.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibrnnoise.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibspeexdsp.cmake;D:\cplus\obs-studio\cmake\winrc\obs-module.rc.in;D:\cplus\obs-studio\plugins\obs-filters\obs-filters-config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/cplus/obs-studio/plugins/obs-filters/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/plugins/obs-filters/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPkgConfig.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibrnnoise.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibspeexdsp.cmake;D:\cplus\obs-studio\cmake\winrc\obs-module.rc.in;D:\cplus\obs-studio\plugins\obs-filters\obs-filters-config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/cplus/obs-studio/plugins/obs-filters/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/plugins/obs-filters/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPkgConfig.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibrnnoise.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibspeexdsp.cmake;D:\cplus\obs-studio\cmake\winrc\obs-module.rc.in;D:\cplus\obs-studio\plugins\obs-filters\obs-filters-config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/cplus/obs-studio/plugins/obs-filters/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Cmake\bin\cmake.exe -SD:/cplus/obs-studio -BD:/cplus/obs-studio/build --check-stamp-file D:/cplus/obs-studio/build/plugins/obs-filters/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Cmake\share\cmake-3.17\Modules\FindPkgConfig.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibrnnoise.cmake;D:\cplus\obs-studio\cmake\Modules\FindLibspeexdsp.cmake;D:\cplus\obs-studio\cmake\winrc\obs-module.rc.in;D:\cplus\obs-studio\plugins\obs-filters\obs-filters-config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\cplus\obs-studio\build\plugins\obs-filters\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\obs-filters.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\color-correction-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\async-delay-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\gpu-delay.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\crop-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\scale-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\scroll-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\chroma-key-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\color-key-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\color-grade-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\sharpness-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\gain-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\noise-gate-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\mask-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\invert-audio-polarity.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\compressor-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\limiter-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\expander-filter.c" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\luma-key-filter.c" />
+    <ResourceCompile Include="D:\cplus\obs-studio\build\plugins\obs-filters\obs-filters.rc" />
+    <ClInclude Include="D:\cplus\obs-studio\build\plugins\obs-filters\config\obs-filters-config.h" />
+    <ClCompile Include="D:\cplus\obs-studio\plugins\obs-filters\noise-suppress-filter.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\cplus\obs-studio\build\ZERO_CHECK.vcxproj">
+      <Project>{1858EE3D-1097-33C1-B572-A908693DEF62}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\libobs\libobs.vcxproj">
+      <Project>{A70F00CC-EADA-3D3B-80AE-5C5A9049670C}</Project>
+      <Name>libobs</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\cplus\obs-studio\build\deps\w32-pthreads\w32-pthreads.vcxproj">
+      <Project>{5733F45A-8C55-3AE5-8E3F-51A789686E13}</Project>
+      <Name>w32-pthreads</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
