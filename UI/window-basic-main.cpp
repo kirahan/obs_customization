@@ -78,6 +78,8 @@
 
 #include <json11.hpp>
 
+#include <LoginClass.h>
+
 using namespace json11;
 using namespace std;
 
@@ -193,224 +195,239 @@ extern void RegisterRestreamAuth();
 OBSBasic::OBSBasic(QWidget *parent)
 	: OBSMainWindow(parent), ui(new Ui::OBSBasic)
 {
-	qRegisterMetaTypeStreamOperators<SignalContainer<OBSScene>>(
-		"SignalContainer<OBSScene>");
 
-	setAttribute(Qt::WA_NativeWindow);
+	LoginClass login_dlg;
+	if (login_dlg.exec() == QDialog::Accepted) {
+
+		qRegisterMetaTypeStreamOperators<SignalContainer<OBSScene>>(
+			"SignalContainer<OBSScene>");
+
+		setAttribute(Qt::WA_NativeWindow);
 
 #if TWITCH_ENABLED
-	RegisterTwitchAuth();
+		RegisterTwitchAuth();
 #endif
 #if RESTREAM_ENABLED
-	RegisterRestreamAuth();
+		RegisterRestreamAuth();
 #endif
 
-	setAcceptDrops(true);
+		setAcceptDrops(true);
 
-	setContextMenuPolicy(Qt::CustomContextMenu);
-	connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this,
-		SLOT(on_customContextMenuRequested(const QPoint &)));
+		setContextMenuPolicy(Qt::CustomContextMenu);
+		connect(this,
+			SIGNAL(customContextMenuRequested(const QPoint &)),
+			this,
+			SLOT(on_customContextMenuRequested(const QPoint &)));
 
-	api = InitializeAPIInterface(this);
+		api = InitializeAPIInterface(this);
 
-	ui->setupUi(this);
-	ui->previewDisabledWidget->setVisible(false);
-	ui->contextContainer->setStyle(new OBSProxyStyle);
+		ui->setupUi(this);
+		ui->previewDisabledWidget->setVisible(false);
+		ui->contextContainer->setStyle(new OBSProxyStyle);
 
-	startingDockLayout = saveState();
+		startingDockLayout = saveState();
 
-	statsDock = new OBSDock();
-	statsDock->setObjectName(QStringLiteral("statsDock"));
-	statsDock->setFeatures(QDockWidget::DockWidgetClosable |
-			       QDockWidget::DockWidgetMovable |
-			       QDockWidget::DockWidgetFloatable);
-	statsDock->setWindowTitle(QTStr("Basic.Stats"));
-	addDockWidget(Qt::BottomDockWidgetArea, statsDock);
-	statsDock->setVisible(false);
-	statsDock->setFloating(true);
-	statsDock->resize(700, 200);
+		statsDock = new OBSDock();
+		statsDock->setObjectName(QStringLiteral("statsDock"));
+		statsDock->setFeatures(QDockWidget::DockWidgetClosable |
+				       QDockWidget::DockWidgetMovable |
+				       QDockWidget::DockWidgetFloatable);
+		statsDock->setWindowTitle(QTStr("Basic.Stats"));
+		addDockWidget(Qt::BottomDockWidgetArea, statsDock);
+		statsDock->setVisible(false);
+		statsDock->setFloating(true);
+		statsDock->resize(700, 200);
 
-	copyActionsDynamicProperties();
+		copyActionsDynamicProperties();
 
-	char styleSheetPath[512];
-	int ret = GetProfilePath(styleSheetPath, sizeof(styleSheetPath),
-				 "stylesheet.qss");
-	if (ret > 0) {
-		if (QFile::exists(styleSheetPath)) {
-			QString path =
-				QString("file:///") + QT_UTF8(styleSheetPath);
-			App()->setStyleSheet(path);
+		char styleSheetPath[512];
+		int ret = GetProfilePath(styleSheetPath, sizeof(styleSheetPath),
+					 "stylesheet.qss");
+		if (ret > 0) {
+			if (QFile::exists(styleSheetPath)) {
+				QString path = QString("file:///") +
+					       QT_UTF8(styleSheetPath);
+				App()->setStyleSheet(path);
+			}
 		}
-	}
 
-	qRegisterMetaType<OBSScene>("OBSScene");
-	qRegisterMetaType<OBSSceneItem>("OBSSceneItem");
-	qRegisterMetaType<OBSSource>("OBSSource");
-	qRegisterMetaType<obs_hotkey_id>("obs_hotkey_id");
-	qRegisterMetaType<SavedProjectorInfo *>("SavedProjectorInfo *");
+		qRegisterMetaType<OBSScene>("OBSScene");
+		qRegisterMetaType<OBSSceneItem>("OBSSceneItem");
+		qRegisterMetaType<OBSSource>("OBSSource");
+		qRegisterMetaType<obs_hotkey_id>("obs_hotkey_id");
+		qRegisterMetaType<SavedProjectorInfo *>("SavedProjectorInfo *");
 
-	qRegisterMetaTypeStreamOperators<std::vector<std::shared_ptr<OBSSignal>>>(
-		"std::vector<std::shared_ptr<OBSSignal>>");
-	qRegisterMetaTypeStreamOperators<OBSScene>("OBSScene");
-	qRegisterMetaTypeStreamOperators<OBSSceneItem>("OBSSceneItem");
+		qRegisterMetaTypeStreamOperators<
+			std::vector<std::shared_ptr<OBSSignal>>>(
+			"std::vector<std::shared_ptr<OBSSignal>>");
+		qRegisterMetaTypeStreamOperators<OBSScene>("OBSScene");
+		qRegisterMetaTypeStreamOperators<OBSSceneItem>("OBSSceneItem");
 
-	ui->scenes->setAttribute(Qt::WA_MacShowFocusRect, false);
-	ui->sources->setAttribute(Qt::WA_MacShowFocusRect, false);
+		ui->scenes->setAttribute(Qt::WA_MacShowFocusRect, false);
+		ui->sources->setAttribute(Qt::WA_MacShowFocusRect, false);
 
-	bool sceneGrid = config_get_bool(App()->GlobalConfig(), "BasicWindow",
-					 "gridMode");
-	ui->scenes->SetGridMode(sceneGrid);
+		bool sceneGrid = config_get_bool(App()->GlobalConfig(),
+						 "BasicWindow", "gridMode");
+		ui->scenes->SetGridMode(sceneGrid);
 
-	ui->scenes->setItemDelegate(new SceneRenameDelegate(ui->scenes));
+		ui->scenes->setItemDelegate(
+			new SceneRenameDelegate(ui->scenes));
 
-	auto displayResize = [this]() {
-		struct obs_video_info ovi;
+		auto displayResize = [this]() {
+			struct obs_video_info ovi;
 
-		if (obs_get_video_info(&ovi))
-			ResizePreview(ovi.base_width, ovi.base_height);
-	};
+			if (obs_get_video_info(&ovi))
+				ResizePreview(ovi.base_width, ovi.base_height);
+		};
 
-	connect(windowHandle(), &QWindow::screenChanged, displayResize);
-	connect(ui->preview, &OBSQTDisplay::DisplayResized, displayResize);
+		connect(windowHandle(), &QWindow::screenChanged, displayResize);
+		connect(ui->preview, &OBSQTDisplay::DisplayResized,
+			displayResize);
 
-	delete shortcutFilter;
-	shortcutFilter = CreateShortcutFilter();
-	installEventFilter(shortcutFilter);
+		delete shortcutFilter;
+		shortcutFilter = CreateShortcutFilter();
+		installEventFilter(shortcutFilter);
 
-	stringstream name;
-	name << "OBS " << App()->GetVersionString();
-	blog(LOG_INFO, "%s", name.str().c_str());
-	blog(LOG_INFO, "---------------------------------");
+		stringstream name;
+		name << "OBS " << App()->GetVersionString();
+		blog(LOG_INFO, "%s", name.str().c_str());
+		blog(LOG_INFO, "---------------------------------");
 
-	UpdateTitleBar();
+		UpdateTitleBar();
 
-	connect(ui->scenes->itemDelegate(),
-		SIGNAL(closeEditor(QWidget *,
-				   QAbstractItemDelegate::EndEditHint)),
-		this,
-		SLOT(SceneNameEdited(QWidget *,
-				     QAbstractItemDelegate::EndEditHint)));
+		connect(ui->scenes->itemDelegate(),
+			SIGNAL(closeEditor(QWidget *,
+					   QAbstractItemDelegate::EndEditHint)),
+			this,
+			SLOT(SceneNameEdited(
+				QWidget *,
+				QAbstractItemDelegate::EndEditHint)));
 
-	cpuUsageInfo = os_cpu_usage_info_start();
-	cpuUsageTimer = new QTimer(this);
-	connect(cpuUsageTimer.data(), SIGNAL(timeout()), ui->statusbar,
-		SLOT(UpdateCPUUsage()));
-	cpuUsageTimer->start(3000);
+		cpuUsageInfo = os_cpu_usage_info_start();
+		cpuUsageTimer = new QTimer(this);
+		connect(cpuUsageTimer.data(), SIGNAL(timeout()), ui->statusbar,
+			SLOT(UpdateCPUUsage()));
+		cpuUsageTimer->start(3000);
 
-	diskFullTimer = new QTimer(this);
-	connect(diskFullTimer, SIGNAL(timeout()), this,
-		SLOT(CheckDiskSpaceRemaining()));
+		diskFullTimer = new QTimer(this);
+		connect(diskFullTimer, SIGNAL(timeout()), this,
+			SLOT(CheckDiskSpaceRemaining()));
 
-	renameScene = new QAction(ui->scenesDock);
-	renameScene->setShortcutContext(Qt::WidgetWithChildrenShortcut);
-	connect(renameScene, SIGNAL(triggered()), this, SLOT(EditSceneName()));
-	ui->scenesDock->addAction(renameScene);
+		renameScene = new QAction(ui->scenesDock);
+		renameScene->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+		connect(renameScene, SIGNAL(triggered()), this,
+			SLOT(EditSceneName()));
+		ui->scenesDock->addAction(renameScene);
 
-	renameSource = new QAction(ui->sourcesDock);
-	renameSource->setShortcutContext(Qt::WidgetWithChildrenShortcut);
-	connect(renameSource, SIGNAL(triggered()), this,
-		SLOT(EditSceneItemName()));
-	ui->sourcesDock->addAction(renameSource);
+		renameSource = new QAction(ui->sourcesDock);
+		renameSource->setShortcutContext(
+			Qt::WidgetWithChildrenShortcut);
+		connect(renameSource, SIGNAL(triggered()), this,
+			SLOT(EditSceneItemName()));
+		ui->sourcesDock->addAction(renameSource);
 
 #ifdef __APPLE__
-	renameScene->setShortcut({Qt::Key_Return});
-	renameSource->setShortcut({Qt::Key_Return});
+		renameScene->setShortcut({Qt::Key_Return});
+		renameSource->setShortcut({Qt::Key_Return});
 
-	ui->actionRemoveSource->setShortcuts({Qt::Key_Backspace});
-	ui->actionRemoveScene->setShortcuts({Qt::Key_Backspace});
+		ui->actionRemoveSource->setShortcuts({Qt::Key_Backspace});
+		ui->actionRemoveScene->setShortcuts({Qt::Key_Backspace});
 
-	ui->action_Settings->setMenuRole(QAction::PreferencesRole);
-	ui->actionE_xit->setMenuRole(QAction::QuitRole);
+		ui->action_Settings->setMenuRole(QAction::PreferencesRole);
+		ui->actionE_xit->setMenuRole(QAction::QuitRole);
 #else
-	renameScene->setShortcut({Qt::Key_F2});
-	renameSource->setShortcut({Qt::Key_F2});
+		renameScene->setShortcut({Qt::Key_F2});
+		renameSource->setShortcut({Qt::Key_F2});
 #endif
 
 #ifdef __linux__
-	ui->actionE_xit->setShortcut(Qt::CTRL + Qt::Key_Q);
+		ui->actionE_xit->setShortcut(Qt::CTRL + Qt::Key_Q);
 #endif
 
-	auto addNudge = [this](const QKeySequence &seq, const char *s) {
-		QAction *nudge = new QAction(ui->preview);
-		nudge->setShortcut(seq);
-		nudge->setShortcutContext(Qt::WidgetShortcut);
-		ui->preview->addAction(nudge);
-		connect(nudge, SIGNAL(triggered()), this, s);
-	};
+		auto addNudge = [this](const QKeySequence &seq, const char *s) {
+			QAction *nudge = new QAction(ui->preview);
+			nudge->setShortcut(seq);
+			nudge->setShortcutContext(Qt::WidgetShortcut);
+			ui->preview->addAction(nudge);
+			connect(nudge, SIGNAL(triggered()), this, s);
+		};
 
-	addNudge(Qt::Key_Up, SLOT(NudgeUp()));
-	addNudge(Qt::Key_Down, SLOT(NudgeDown()));
-	addNudge(Qt::Key_Left, SLOT(NudgeLeft()));
-	addNudge(Qt::Key_Right, SLOT(NudgeRight()));
+		addNudge(Qt::Key_Up, SLOT(NudgeUp()));
+		addNudge(Qt::Key_Down, SLOT(NudgeDown()));
+		addNudge(Qt::Key_Left, SLOT(NudgeLeft()));
+		addNudge(Qt::Key_Right, SLOT(NudgeRight()));
 
-	assignDockToggle(ui->scenesDock, ui->toggleScenes);
-	assignDockToggle(ui->sourcesDock, ui->toggleSources);
-	assignDockToggle(ui->mixerDock, ui->toggleMixer);
-	assignDockToggle(ui->transitionsDock, ui->toggleTransitions);
-	assignDockToggle(ui->controlsDock, ui->toggleControls);
-	assignDockToggle(statsDock, ui->toggleStats);
+		assignDockToggle(ui->scenesDock, ui->toggleScenes);
+		assignDockToggle(ui->sourcesDock, ui->toggleSources);
+		assignDockToggle(ui->mixerDock, ui->toggleMixer);
+		assignDockToggle(ui->transitionsDock, ui->toggleTransitions);
+		assignDockToggle(ui->controlsDock, ui->toggleControls);
+		assignDockToggle(statsDock, ui->toggleStats);
 
-	//hide all docking panes
-	ui->toggleScenes->setChecked(false);
-	ui->toggleSources->setChecked(false);
-	ui->toggleMixer->setChecked(false);
-	ui->toggleTransitions->setChecked(false);
-	ui->toggleControls->setChecked(false);
-	ui->toggleStats->setChecked(false);
+		//hide all docking panes
+		ui->toggleScenes->setChecked(false);
+		ui->toggleSources->setChecked(false);
+		ui->toggleMixer->setChecked(false);
+		ui->toggleTransitions->setChecked(false);
+		ui->toggleControls->setChecked(false);
+		ui->toggleStats->setChecked(false);
 
-	QPoint curPos;
+		QPoint curPos;
 
-	//restore parent window geometry
-	const char *geometry = config_get_string(App()->GlobalConfig(),
-						 "BasicWindow", "geometry");
-	if (geometry != NULL) {
-		QByteArray byteArray =
-			QByteArray::fromBase64(QByteArray(geometry));
-		restoreGeometry(byteArray);
+		//restore parent window geometry
+		const char *geometry = config_get_string(
+			App()->GlobalConfig(), "BasicWindow", "geometry");
+		if (geometry != NULL) {
+			QByteArray byteArray =
+				QByteArray::fromBase64(QByteArray(geometry));
+			restoreGeometry(byteArray);
 
-		QRect windowGeometry = normalGeometry();
-		if (!WindowPositionValid(windowGeometry)) {
-			QRect rect = App()->desktop()->geometry();
-			setGeometry(QStyle::alignedRect(Qt::LeftToRight,
-							Qt::AlignCenter, size(),
-							rect));
+			QRect windowGeometry = normalGeometry();
+			if (!WindowPositionValid(windowGeometry)) {
+				QRect rect = App()->desktop()->geometry();
+				setGeometry(QStyle::alignedRect(Qt::LeftToRight,
+								Qt::AlignCenter,
+								size(), rect));
+			}
+
+			curPos = pos();
+		} else {
+			QRect desktopRect =
+				QGuiApplication::primaryScreen()->geometry();
+			QSize adjSize = desktopRect.size() / 2 - size() / 2;
+			curPos = QPoint(adjSize.width(), adjSize.height());
 		}
 
-		curPos = pos();
-	} else {
-		QRect desktopRect =
-			QGuiApplication::primaryScreen()->geometry();
-		QSize adjSize = desktopRect.size() / 2 - size() / 2;
-		curPos = QPoint(adjSize.width(), adjSize.height());
+		QPoint curSize(width(), height());
+
+		QPoint statsDockSize(statsDock->width(), statsDock->height());
+		QPoint statsDockPos = curSize / 2 - statsDockSize / 2;
+		QPoint newPos = curPos + statsDockPos;
+		statsDock->move(newPos);
+
+		ui->previewLabel->setProperty("themeID",
+					      "previewProgramLabels");
+		ui->previewLabel->style()->polish(ui->previewLabel);
+
+		bool labels = config_get_bool(GetGlobalConfig(), "BasicWindow",
+					      "StudioModeLabels");
+
+		if (!previewProgramMode)
+			ui->previewLabel->setHidden(true);
+		else
+			ui->previewLabel->setHidden(!labels);
+
+		ui->previewDisabledWidget->setContextMenuPolicy(
+			Qt::CustomContextMenu);
+		connect(ui->previewDisabledWidget,
+			SIGNAL(customContextMenuRequested(const QPoint &)),
+			this, SLOT(PreviewDisabledMenu(const QPoint &)));
+		connect(ui->enablePreviewButton, SIGNAL(clicked()), this,
+			SLOT(TogglePreview()));
+
+		connect(ui->scenes, SIGNAL(scenesReordered()), this,
+			SLOT(ScenesReordered()));
 	}
-
-	QPoint curSize(width(), height());
-
-	QPoint statsDockSize(statsDock->width(), statsDock->height());
-	QPoint statsDockPos = curSize / 2 - statsDockSize / 2;
-	QPoint newPos = curPos + statsDockPos;
-	statsDock->move(newPos);
-
-	ui->previewLabel->setProperty("themeID", "previewProgramLabels");
-	ui->previewLabel->style()->polish(ui->previewLabel);
-
-	bool labels = config_get_bool(GetGlobalConfig(), "BasicWindow",
-				      "StudioModeLabels");
-
-	if (!previewProgramMode)
-		ui->previewLabel->setHidden(true);
-	else
-		ui->previewLabel->setHidden(!labels);
-
-	ui->previewDisabledWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-	connect(ui->previewDisabledWidget,
-		SIGNAL(customContextMenuRequested(const QPoint &)), this,
-		SLOT(PreviewDisabledMenu(const QPoint &)));
-	connect(ui->enablePreviewButton, SIGNAL(clicked()), this,
-		SLOT(TogglePreview()));
-
-	connect(ui->scenes, SIGNAL(scenesReordered()), this,
-		SLOT(ScenesReordered()));
 }
 
 static void SaveAudioDevice(const char *name, int channel, obs_data_t *parent,
