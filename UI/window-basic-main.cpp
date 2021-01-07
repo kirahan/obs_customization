@@ -197,7 +197,8 @@ OBSBasic::OBSBasic(QWidget *parent)
 {
 
 	LoginClass login_dlg;
-	if (login_dlg.exec() == QDialog::Accepted) {
+	//if (login_dlg.exec() == QDialog::Accepted) {
+	if (true) {
 
 		qRegisterMetaTypeStreamOperators<SignalContainer<OBSScene>>(
 			"SignalContainer<OBSScene>");
@@ -265,6 +266,13 @@ OBSBasic::OBSBasic(QWidget *parent)
 
 		ui->scenes->setAttribute(Qt::WA_MacShowFocusRect, false);
 		ui->sources->setAttribute(Qt::WA_MacShowFocusRect, false);
+
+		ui->coursesList->setWordWrap(true);
+		QListWidgetItem *item = new QListWidgetItem;
+		QString str = "abc";
+		item->setText(str); //设置列表项的文本
+		ui->coursesList->addItem(item);
+
 
 		bool sceneGrid = config_get_bool(App()->GlobalConfig(),
 						 "BasicWindow", "gridMode");
