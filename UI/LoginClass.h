@@ -5,6 +5,8 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkReply>
+extern QString str;
+extern QJsonArray courseListData;
 
 class LoginClass : public QDialog
 {
@@ -13,6 +15,7 @@ class LoginClass : public QDialog
 public:
 	LoginClass(QWidget *parent = Q_NULLPTR);
 	~LoginClass();
+	void LoginClass::getCourses(QString token);
 
 private:
 	Ui::LoginClass ui;
@@ -23,5 +26,7 @@ public slots:
 	void finishRequest(QNetworkReply*);
 	void on_loginBtn_clicked();
 
+signals:
+	void sendCourses(QString data);
 	
 };

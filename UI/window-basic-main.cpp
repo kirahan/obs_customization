@@ -30,6 +30,8 @@
 #include <QSizePolicy>
 #include <QScrollBar>
 #include <QTextStream>
+#include <QJsonArray>
+#include <QJsonObject>
 
 #include <util/dstr.h>
 #include <util/util.hpp>
@@ -61,6 +63,7 @@
 #include "media-controls.hpp"
 #include <fstream>
 #include <sstream>
+#include <QString>
 
 #ifdef _WIN32
 #include "win-update/win-update.hpp"
@@ -197,8 +200,10 @@ OBSBasic::OBSBasic(QWidget *parent)
 {
 
 	LoginClass login_dlg;
-	//if (login_dlg.exec() == QDialog::Accepted) {
-	if (true) {
+	LoginClass* dlg = new LoginClass(this);
+	connect(dlg, SIGNAL(sendCourses(QString)), this, SLOT(receiveCourses(QString)), Qt::QueuedConnection);
+	if (login_dlg.exec() == QDialog::Accepted) {
+	//if (true) {
 
 		qRegisterMetaTypeStreamOperators<SignalContainer<OBSScene>>(
 			"SignalContainer<OBSScene>");
@@ -266,12 +271,28 @@ OBSBasic::OBSBasic(QWidget *parent)
 
 		ui->scenes->setAttribute(Qt::WA_MacShowFocusRect, false);
 		ui->sources->setAttribute(Qt::WA_MacShowFocusRect, false);
+		
+		qDebug() << "receive"; //输出：QJsonValue(string, "登录成功")
 
-		ui->coursesList->setWordWrap(true);
-		QListWidgetItem *item = new QListWidgetItem;
-		QString str = "abc";
-		item->setText(str); //设置列表项的文本
-		ui->coursesList->addItem(item);
+		ui->courseList->setStyleSheet(
+                           "QListWidget::Item{background:#656A6E; }"
+                           "QListWidget::Item:hover{background:#19334B; }"
+                           "QListWidget::item:selected{background:lightgray; color:#19334B; }"
+                           "QListWidget::item:selected:!active{border-width:0px; background:#19334B; }");
+		for (int i = 1; i < courseListData.count(); i++)
+		{
+			ui->courseList->setWordWrap(true);
+			QListWidgetItem* item = new QListWidgetItem;
+			//QJsonObject data_obj = arr[0].toObject();
+			item->setText(courseListData[i].toString()); //设置列表项的文本
+			ui->courseList->setSpacing(2);
+			ui->courseList->addItem(item);
+		}
+		
+
+
+
+
 
 
 		bool sceneGrid = config_get_bool(App()->GlobalConfig(),
@@ -8489,4 +8510,13 @@ void OBSBasic::on_sourcePropertiesButton_clicked()
 void OBSBasic::on_sourceFiltersButton_clicked()
 {
 	OpenFilters();
+}
+void OBSBasic::receiveCourses(QString data)
+{
+	qDebug() << "receive"; //输出：QJsonValue(string, "登录成功")
+	ui->courseList->setWordWrap(true);
+	QListWidgetItem* item = new QListWidgetItem;
+	item->setText(data); //设置列表项的文本
+	ui->courseList->addItem(item);
+	
 }
