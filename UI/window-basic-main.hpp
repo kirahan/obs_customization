@@ -605,6 +605,8 @@ public slots:
 	void PauseRecording();
 	void UnpauseRecording();
 
+	void receiveCourses(QString data);
+
 private slots:
 	void AddSceneItem(OBSSceneItem item);
 	void AddScene(OBSSource source);
