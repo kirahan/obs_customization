@@ -272,7 +272,7 @@ OBSBasic::OBSBasic(QWidget *parent)
 		ui->scenes->setAttribute(Qt::WA_MacShowFocusRect, false);
 		ui->sources->setAttribute(Qt::WA_MacShowFocusRect, false);
 		
-		qDebug() << "receive"; //输出：QJsonValue(string, "登录成功")
+	
 
 		ui->courseList->setStyleSheet(
                            "QListWidget::Item{background:#656A6E; }"
@@ -288,7 +288,8 @@ OBSBasic::OBSBasic(QWidget *parent)
 			ui->courseList->setSpacing(2);
 			ui->courseList->addItem(item);
 		}
-		
+		//QJsonObject json = courseStream.at(i + 1).toObject();
+		//qDebug() << "courseStream:" << json.value("pushDomain").toString(); 
 
 
 

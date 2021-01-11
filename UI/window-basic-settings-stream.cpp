@@ -105,7 +105,7 @@ void OBSBasicSettings::LoadStream1Settings()
 	const char *server = obs_data_get_string(settings, "server");
 	const char *key = obs_data_get_string(settings, "key");
 
-	if (strcmp(type, "rtmp_custom") == 0) {
+	if (true) {		//让服务设置项只有“自定义”选项
 		ui->service->setCurrentIndex(0);
 		ui->customServer->setText(server);
 
@@ -168,7 +168,7 @@ void OBSBasicSettings::LoadStream1Settings()
 				  Qt::QueuedConnection);
 }
 
-void OBSBasicSettings::SaveStream1Settings()
+void OBSBasicSettings::SaveStream1Settings()	//保存推流设置的函数
 {
 	bool customServer = IsCustomService();
 	const char *service_id = customServer ? "rtmp_custom" : "rtmp_common";
@@ -187,9 +187,9 @@ void OBSBasicSettings::SaveStream1Settings()
 			settings, "server",
 			QT_TO_UTF8(ui->server->currentData().toString()));
 	} else {
-		obs_data_set_string(settings, "server",
+		obs_data_set_string(settings, "server",	//设置服务地址
 				    QT_TO_UTF8(ui->customServer->text()));
-		obs_data_set_bool(settings, "use_auth",
+		obs_data_set_bool(settings, "use_auth",	 //设置秘钥
 				  ui->useAuth->isChecked());
 		if (ui->useAuth->isChecked()) {
 			obs_data_set_string(
