@@ -1,7 +1,0 @@
-# CMake generation dependency list for this directory.
-D:/Cmake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
-D:/Cmake/share/cmake-3.17/Modules/FindPackageMessage.cmake
-D:/Cmake/share/cmake-3.17/Modules/FindPkgConfig.cmake
-D:/cplus/obs-studio/cmake/Modules/FindFreetype.cmake
-D:/cplus/obs-studio/cmake/winrc/obs-module.rc.in
-D:/cplus/obs-studio/plugins/text-freetype2/CMakeLists.txt

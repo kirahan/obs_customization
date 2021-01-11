@@ -1,6 +1,0 @@
-# CMake generation dependency list for this directory.
-D:/Cmake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
-D:/Cmake/share/cmake-3.17/Modules/FindPackageMessage.cmake
-D:/Cmake/share/cmake-3.17/Modules/FindPkgConfig.cmake
-D:/cplus/obs-studio/cmake/Modules/FindLibVLC.cmake
-D:/cplus/obs-studio/plugins/vlc-video/CMakeLists.txt
