@@ -6373,7 +6373,7 @@ void OBSBasic::OnVirtualCamStop(int)
 
 void OBSBasic::on_streamButton_clicked()
 {
-	if (outputHandler->StreamingActive()) {
+	if (outputHandler->StreamingActive()) {	//如果已经在推流中，给出提示
 		bool confirm = config_get_bool(GetGlobalConfig(), "BasicWindow",
 					       "WarnBeforeStoppingStream");
 
@@ -6398,7 +6398,7 @@ void OBSBasic::on_streamButton_clicked()
 			return;
 		}
 
-		auto action =
+		auto action =	//确认推流的相关设置
 			UIValidation::StreamSettingsConfirmation(this, service);
 		switch (action) {
 		case StreamSettingsAction::ContinueStream:

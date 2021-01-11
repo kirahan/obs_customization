@@ -59,7 +59,7 @@ void OBSBasicSettings::InitStreamPage()
 	LoadServices(false);
 
 	ui->twitchAddonDropdown->addItem(
-		QTStr("Basic.Settings.Stream.TTVAddon.None"));
+		QTStr("Basic.Settings.Stream.TTVAddon.None")); //聊天附加组件
 	ui->twitchAddonDropdown->addItem(
 		QTStr("Basic.Settings.Stream.TTVAddon.BTTV"));
 	ui->twitchAddonDropdown->addItem(
