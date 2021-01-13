@@ -1,4 +1,4 @@
-﻿#include "LoginClass.h"
+#include "LoginClass.h"
 #include <QMessageBox>
 #include <QByteArray>
 #include <QString>
@@ -12,9 +12,10 @@
 #include "window-basic-main.hpp"
 QString str = "aaa";
 QJsonArray courseListData = { "abc" };
+QJsonArray courseStream = { "abc" };
+int clicked_row = 0;
 
-
-LoginClass::LoginClass(QWidget *parent)
+LoginClass::LoginClass(QWidget* parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
@@ -22,15 +23,15 @@ LoginClass::LoginClass(QWidget *parent)
 
 LoginClass::~LoginClass()
 {
-	
+
 }
 void LoginClass::on_loginBtn_clicked() {
-	
+
 	QString loginName = ui.loginLineEdit->text();
 	QString password = ui.pwdLineEdit->text();
 	if (loginName.isEmpty() || password.isEmpty())
 	{
-		QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("账号和密码不能为空"), QMessageBox::Yes);
+		QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("账号密码不能为空!"), QMessageBox::Yes);
 		ui.loginLineEdit->clear();
 		ui.pwdLineEdit->clear();
 	}
@@ -45,9 +46,9 @@ void LoginClass::on_loginBtn_clicked() {
 
 		QByteArray byte_array = document.toJson(QJsonDocument::Compact);
 		QByteArray data;
-		data.append( byte_array);
+		data.append(byte_array);
 
-		request.setHeader(QNetworkRequest::ContentTypeHeader,"application / x - www - form - urlencoded"); 
+		request.setHeader(QNetworkRequest::ContentTypeHeader, "application / x - www - form - urlencoded");
 		request.setRawHeader("user-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36");
 		request.setRawHeader("content-type", "application/json");
 		request.setUrl(QUrl("https://ycary.cn:1083/zhiBoApi/v2/login"));
@@ -66,7 +67,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 		QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("系统错误!"), QMessageBox::Yes);
 	}
 	else {
-	
+
 		QByteArray byte_array = reply->readAll();  //Json ducument
 		QJsonParseError json_error;
 		QJsonDocument parse_document = QJsonDocument::fromJson(byte_array, &json_error);
@@ -84,7 +85,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 					QString code_value_string = code_value.toString();
 					if (code_value_string == "200")
 					{
-						
+
 						accept();//登录成功，跳转到主页面
 						//QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("登录成功"), QMessageBox::Yes);
 						qDebug() << "login_succeed";  //输出：QJsonValue(string, "登录成功")
@@ -97,58 +98,63 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 							if (token != "") {
 								getCourses(token);
 							}
-							
+
 						}
 						else {
 							//QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("获取课程列表成功"), QMessageBox::Yes);
 							QJsonArray data_arr = data_value.toArray();
 							for (int i = 0; i < data_arr.count(); i++)
 							{
-								
+
 								QJsonObject data_obj = data_arr[i].toObject();
+								courseStream.append(data_obj);
 								QString coursesList = "";
 								QString curriculumName = data_obj.take("curriculumName").toString();
 								QString beginDate = data_obj.take("beginDate").toString();
 								QString beginTime = data_obj.take("beginTime").toString();
 								QString endTime = data_obj.take("endTime").toString();
-								coursesList.append(QString::fromLocal8Bit("课程："));
+								coursesList.append("课程:");
 								coursesList.append(curriculumName);
 								coursesList.append("  ");
-								coursesList.append(QString::fromLocal8Bit("直播日期："));
+								coursesList.append("直播日期:");
 								coursesList.append(beginDate);
 								coursesList.append("  ");
-								coursesList.append(QString::fromLocal8Bit("开始时间："));
+								coursesList.append("开始时间:");
 								coursesList.append(beginTime);
 								coursesList.append("  ");
-								coursesList.append(QString::fromLocal8Bit("结束时间："));
+
+								coursesList.append("结束时间:");
 								coursesList.append(endTime);
 								coursesList.append("  ");
-								coursesList.append(QString::fromLocal8Bit("直播状态："));
+
+								coursesList.append("直播状态:");
 
 								QJsonValue playStatus_json = data_obj.take("playStatus");
 								int playStatus = playStatus_json.toInt();
 								qDebug() << "palyStatus:" << playStatus;  //输出：QJsonValue(string, "登录成功")
 								if (playStatus == 0)
 								{
-									coursesList.append(QString::fromLocal8Bit("未开始"));
+									coursesList.append("未开始 ");
 								}
 								else if (playStatus == 1)
 								{
-									coursesList.append(QString::fromLocal8Bit("直播中"));
+									coursesList.append("直播中 ");
 								}
 								else if (playStatus == 2)
 								{
-									coursesList.append(QString::fromLocal8Bit("直播中断"));
+									coursesList.append("直播中断 ");
 								}
 								else if (playStatus == 3)
 								{
-									coursesList.append(QString::fromLocal8Bit("未开始"));
+									coursesList.append("未开始 ");
 								}
 								courseListData.append(coursesList);
+								
+
 							}
 
 						}
-						
+
 					}
 					else
 					{
@@ -159,7 +165,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 					}
 				}
 				else {
-					QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("系统错误！"), QMessageBox::Yes);
+					QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("系统错误"), QMessageBox::Yes);
 				}
 			}
 		}

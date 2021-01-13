@@ -406,4 +406,5 @@ protected:
 public:
 	OBSBasicSettings(QWidget *parent);
 	~OBSBasicSettings();
+	void saveCourseStream();
 };

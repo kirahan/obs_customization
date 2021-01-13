@@ -201,7 +201,7 @@ OBSBasic::OBSBasic(QWidget *parent)
 
 	LoginClass login_dlg;
 	LoginClass* dlg = new LoginClass(this);
-	connect(dlg, SIGNAL(sendCourses(QString)), this, SLOT(receiveCourses(QString)), Qt::QueuedConnection);
+	
 	if (login_dlg.exec() == QDialog::Accepted) {
 	//if (true) {
 
@@ -272,8 +272,7 @@ OBSBasic::OBSBasic(QWidget *parent)
 		ui->scenes->setAttribute(Qt::WA_MacShowFocusRect, false);
 		ui->sources->setAttribute(Qt::WA_MacShowFocusRect, false);
 		
-		qDebug() << "receive"; //输出：QJsonValue(string, "登录成功")
-
+		ui->courseDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 		ui->courseList->setStyleSheet(
                            "QListWidget::Item{background:#656A6E; }"
                            "QListWidget::Item:hover{background:#19334B; }"
@@ -288,13 +287,7 @@ OBSBasic::OBSBasic(QWidget *parent)
 			ui->courseList->setSpacing(2);
 			ui->courseList->addItem(item);
 		}
-		
-
-
-
-
-
-
+		 
 		bool sceneGrid = config_get_bool(App()->GlobalConfig(),
 						 "BasicWindow", "gridMode");
 		ui->scenes->SetGridMode(sceneGrid);
@@ -6371,7 +6364,7 @@ void OBSBasic::OnVirtualCamStop(int)
 	OnDeactivate();
 }
 
-void OBSBasic::on_streamButton_clicked()
+void OBSBasic::on_streamButton_clicked()	//when the streamButton clicked
 {
 	if (outputHandler->StreamingActive()) {
 		bool confirm = config_get_bool(GetGlobalConfig(), "BasicWindow",
@@ -6397,7 +6390,7 @@ void OBSBasic::on_streamButton_clicked()
 			ui->streamButton->setChecked(false);
 			return;
 		}
-
+		beginStream();
 		auto action =
 			UIValidation::StreamSettingsConfirmation(this, service);
 		switch (action) {
@@ -8511,12 +8504,11 @@ void OBSBasic::on_sourceFiltersButton_clicked()
 {
 	OpenFilters();
 }
-void OBSBasic::receiveCourses(QString data)
+void OBSBasic::beginStream()
 {
-	qDebug() << "receive"; //输出：QJsonValue(string, "登录成功")
-	ui->courseList->setWordWrap(true);
-	QListWidgetItem* item = new QListWidgetItem;
-	item->setText(data); //设置列表项的文本
-	ui->courseList->addItem(item);
+	
+	OBSBasicSettings settings(this);
+	settings.saveCourseStream();
+
 	
 }

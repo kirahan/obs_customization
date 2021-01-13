@@ -487,6 +487,7 @@ private:
 
 	void ReceivedIntroJson(const QString &text);
 	void ShowWhatsNew(const QString &url);
+	void beginStream();
 
 #ifdef BROWSER_AVAILABLE
 	QList<QSharedPointer<QDockWidget>> extraBrowserDocks;
@@ -605,7 +606,7 @@ public slots:
 	void PauseRecording();
 	void UnpauseRecording();
 
-	void receiveCourses(QString data);
+
 
 private slots:
 	void AddSceneItem(OBSSceneItem item);

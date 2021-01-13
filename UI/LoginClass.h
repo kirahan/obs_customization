@@ -7,6 +7,8 @@
 #include <QtNetwork/QNetworkReply>
 extern QString str;
 extern QJsonArray courseListData;
+extern QJsonArray courseStream;
+extern int clicked_row;
 
 class LoginClass : public QDialog
 {
@@ -19,7 +21,7 @@ public:
 
 private:
 	Ui::LoginClass ui;
-	QNetworkAccessManager manager;   //manager  相关注意点见后文
+	QNetworkAccessManager manager;   //manager  鐩稿叧娉ㄦ剰鐐硅鍚庢枃
 	QNetworkRequest request;    //request 
 
 public slots:

@@ -4956,3 +4956,49 @@ void OBSBasicSettings::RecreateOutputResolutionWidget()
 	ui->outputResolution->lineEdit()->setValidator(
 		ui->baseResolution->lineEdit()->validator());
 }
+void OBSBasicSettings::saveCourseStream()
+{
+
+	bool customServer = IsCustomService();
+	const char* service_id = "rtmp_custom";
+
+	obs_service_t* oldService = main->GetService();
+	OBSData hotkeyData = obs_hotkeys_save_service(oldService);
+	obs_data_release(hotkeyData);
+
+	OBSData settings = obs_data_create();
+	obs_data_release(settings);
+
+	//if (!customServer) {
+	if (false) {
+		obs_data_set_string(settings, "service",
+			QT_TO_UTF8(ui->service->currentText()));
+		obs_data_set_string(
+			settings, "server",
+			QT_TO_UTF8(ui->server->currentData().toString()));
+	}
+	else {
+		obs_data_set_string(settings, "server",
+			"rtmp://102388.livepush.myqcloud.com/live/");
+		obs_data_set_bool(settings, "use_auth",
+			false);
+		
+	}
+	obs_data_set_bool(settings, "bwtest", false);
+	obs_data_set_string(settings, "key", "rtmp://102388.livepush.myqcloud.com/live/324ad10d93204b048fef4416335d96cf?txSecret=9a2c5c196472a2393895bd3ad1334fa6&txTime=5FEBFB40");
+	OBSService newService = obs_service_create(
+		service_id, "default_service", settings, hotkeyData);
+	obs_service_release(newService);
+	if (!newService)
+		return;
+
+	main->SetService(newService);
+	main->SaveService();
+	main->auth = auth;
+
+	/*
+	if (!!main->auth)
+		main->auth->LoadUI();
+	*/
+	
+}
