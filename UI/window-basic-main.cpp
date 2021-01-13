@@ -287,7 +287,11 @@ OBSBasic::OBSBasic(QWidget *parent)
 			ui->courseList->setSpacing(2);
 			ui->courseList->addItem(item);
 		}
-		 
+
+
+		connect(ui->courseList, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(courseListClicked(QListWidgetItem*)));
+
+
 		bool sceneGrid = config_get_bool(App()->GlobalConfig(),
 						 "BasicWindow", "gridMode");
 		ui->scenes->SetGridMode(sceneGrid);
@@ -8504,6 +8508,14 @@ void OBSBasic::on_sourceFiltersButton_clicked()
 {
 	OpenFilters();
 }
+
+void OBSBasic::courseListClicked(QListWidgetItem*)
+{
+	clicked_row = ui->courseList->currentRow() + 1;	//第一项是初始值，第二项才是传回的数据
+
+
+}
+
 void OBSBasic::beginStream()
 {
 	
@@ -8512,6 +8524,7 @@ void OBSBasic::beginStream()
 	
 	QString pushDomain = courseData.value("pushDomain").toString();
 	QString pushUrl = courseData.value("pushUrl").toString();
+	qDebug() << "aaa:clicked_row:" << clicked_row;
 	qDebug() << "aaa:pushDomain:" << pushDomain;
 	qDebug() << "aaa:pushUrl:" << pushUrl;
 	settings.saveCourseStream();

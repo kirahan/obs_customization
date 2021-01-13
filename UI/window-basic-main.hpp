@@ -1028,7 +1028,7 @@ public slots:
 	void ClearContextBar();
 	void UpdateContextBar(bool force = false);
 	void UpdateContextBarDeferred(bool force = false);
-
+	void courseListClicked(QListWidgetItem*);
 public:
 	explicit OBSBasic(QWidget *parent = 0);
 	virtual ~OBSBasic();

@@ -13,7 +13,7 @@
 QString str = "aaa";
 QJsonArray courseListData = { "abc" };
 QJsonArray courseStream = { "abc" };
-int clicked_row = 0;
+int clicked_row = 1;
 
 LoginClass::LoginClass(QWidget* parent)
 	: QDialog(parent)
