@@ -8508,6 +8508,12 @@ void OBSBasic::beginStream()
 {
 	
 	OBSBasicSettings settings(this);
+	QJsonObject courseData = courseStream.at(clicked_row).toObject();
+	
+	QString pushDomain = courseData.value("pushDomain").toString();
+	QString pushUrl = courseData.value("pushUrl").toString();
+	qDebug() << "aaa:pushDomain:" << pushDomain;
+	qDebug() << "aaa:pushUrl:" << pushUrl;
 	settings.saveCourseStream();
 
 	

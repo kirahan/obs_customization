@@ -48,6 +48,13 @@
 
 #include <util/platform.h>
 #include "ui-config.h"
+#include "LoginClass.h"
+
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonParseError>
+#include <QJsonValue>
+#include <QJsonObject>
 
 #define ENCODER_HIDE_FLAGS \
 	(OBS_ENCODER_CAP_DEPRECATED | OBS_ENCODER_CAP_INTERNAL)
@@ -4958,6 +4965,17 @@ void OBSBasicSettings::RecreateOutputResolutionWidget()
 }
 void OBSBasicSettings::saveCourseStream()
 {
+	QJsonObject courseData = courseStream.at(clicked_row).toObject();
+	//qDebug() << "courseStream:" << json.value("pushDomain").toString();
+	QString pushDomain = courseData.value("pushDomain").toString();
+	QString pushUrl = courseData.value("pushUrl").toString();
+	char* pushDom;
+	char* pushUr;
+	QByteArray push = pushDomain.toLatin1();
+	QByteArray pushU = pushUrl.toLatin1();
+	pushDom = push.data();
+	pushUr = pushU.data();
+
 
 	bool customServer = IsCustomService();
 	const char* service_id = "rtmp_custom";
@@ -4979,13 +4997,13 @@ void OBSBasicSettings::saveCourseStream()
 	}
 	else {
 		obs_data_set_string(settings, "server",
-			"rtmp://102388.livepush.myqcloud.com/live/");
+			pushDom);
 		obs_data_set_bool(settings, "use_auth",
 			false);
 		
 	}
 	obs_data_set_bool(settings, "bwtest", false);
-	obs_data_set_string(settings, "key", "rtmp://102388.livepush.myqcloud.com/live/324ad10d93204b048fef4416335d96cf?txSecret=9a2c5c196472a2393895bd3ad1334fa6&txTime=5FEBFB40");
+	obs_data_set_string(settings, "key", pushUr);
 	OBSService newService = obs_service_create(
 		service_id, "default_service", settings, hotkeyData);
 	obs_service_release(newService);

@@ -7,6 +7,11 @@
 #include "window-basic-main.hpp"
 #include "qt-wrappers.hpp"
 #include "url-push-button.hpp"
+#include "LoginClass.h"
+#include <QJsonArray>
+#include <QJsonParseError>
+#include <QJsonValue>
+#include <QJsonObject>
 
 #ifdef BROWSER_AVAILABLE
 #include <browser-panel.hpp>
@@ -59,7 +64,7 @@ void OBSBasicSettings::InitStreamPage()
 	LoadServices(false);
 
 	ui->twitchAddonDropdown->addItem(
-		QTStr("Basic.Settings.Stream.TTVAddon.None"));
+		QTStr("Basic.Settings.Stream.TTVAddon.None")); //聊天附加组件
 	ui->twitchAddonDropdown->addItem(
 		QTStr("Basic.Settings.Stream.TTVAddon.BTTV"));
 	ui->twitchAddonDropdown->addItem(
@@ -105,7 +110,7 @@ void OBSBasicSettings::LoadStream1Settings()
 	const char *server = obs_data_get_string(settings, "server");
 	const char *key = obs_data_get_string(settings, "key");
 
-	if (strcmp(type, "rtmp_custom") == 0) {
+	if (true) {		//让服务设置项只有“自定义”选项
 		ui->service->setCurrentIndex(0);
 		ui->customServer->setText(server);
 
@@ -168,8 +173,9 @@ void OBSBasicSettings::LoadStream1Settings()
 				  Qt::QueuedConnection);
 }
 
-void OBSBasicSettings::SaveStream1Settings()
+void OBSBasicSettings::SaveStream1Settings()	//保存推流设置的函数
 {
+	qDebug() << "aaa:saveStream";
 	bool customServer = IsCustomService();
 	const char *service_id = customServer ? "rtmp_custom" : "rtmp_common";
 
@@ -180,17 +186,40 @@ void OBSBasicSettings::SaveStream1Settings()
 	OBSData settings = obs_data_create();
 	obs_data_release(settings);
 
-	if (!customServer) {
+	QJsonObject courseData = courseStream.at(clicked_row).toObject();
+	//qDebug() << "courseStream:" << json.value("pushDomain").toString();
+	QString pushDomain = courseData.value("pushDomain").toString();
+	QString pushUrl = courseData.value("pushUrl").toString();
+	pushDomain = "rtmp://102388.livepush.myqcloud.com/live/";
+	pushUrl = "rtmp://102388.livepush.myqcloud.com/live/324ad10d93204b048fef4416335d96cf?txSecret=9a2c5c196472a2393895bd3ad1334fa6&txTime=5FEBFB40";
+
+	/*
+		if (!customServer) {
 		obs_data_set_string(settings, "service",
 				    QT_TO_UTF8(ui->service->currentText()));
 		obs_data_set_string(
 			settings, "server",
 			QT_TO_UTF8(ui->server->currentData().toString()));
 	} else {
-		obs_data_set_string(settings, "server",
-				    QT_TO_UTF8(ui->customServer->text()));
-		obs_data_set_bool(settings, "use_auth",
-				  ui->useAuth->isChecked());
+		obs_data_set_string(settings, "server",	//设置服务地址
+			QT_TO_UTF8(pushDomain));
+		obs_data_set_bool(settings, "use_auth",	 //设置秘钥
+			QT_TO_UTF8(pushUrl));
+		//if (ui->useAuth->isChecked()) {
+		if (false) {
+	*/
+	if (!customServer) {
+		obs_data_set_string(settings, "service",
+			QT_TO_UTF8(ui->service->currentText()));
+		obs_data_set_string(
+			settings, "server",
+			QT_TO_UTF8(ui->server->currentData().toString()));
+	}
+	else {
+		obs_data_set_string(settings, "server",	//设置服务地址
+			QT_TO_UTF8(ui->customServer->text()));
+		obs_data_set_bool(settings, "use_auth",	 //设置秘钥
+			ui->useAuth->isChecked());
 		if (ui->useAuth->isChecked()) {
 			obs_data_set_string(
 				settings, "username",

@@ -131,7 +131,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 
 								QJsonValue playStatus_json = data_obj.take("playStatus");
 								int playStatus = playStatus_json.toInt();
-								qDebug() << "palyStatus:" << playStatus;  //输出：QJsonValue(string, "登录成功")
+								
 								if (playStatus == 0)
 								{
 									coursesList.append("未开始 ");
@@ -152,7 +152,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 								
 
 							}
-
+							
 						}
 
 					}
