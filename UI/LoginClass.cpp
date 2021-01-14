@@ -176,9 +176,12 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 void LoginClass::getCourses(QString token) {
 	qDebug() << "token:" << token;
 	QByteArray token_bytes = token.toLocal8Bit();
-
+	
 	QJsonObject date_json;
-	date_json.insert("beginDate ", "2020-12-30");
+
+	QString currentDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
+	qDebug() << "aaa:currentDate_login"<<currentDate;  //输出：QJsonValue(string, "登录成功")
+	date_json.insert("beginDate", "2020-12-30");
 	QJsonDocument courses_document;
 	courses_document.setObject(date_json);
 

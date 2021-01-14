@@ -200,8 +200,6 @@ OBSBasic::OBSBasic(QWidget *parent)
 {
 
 	LoginClass login_dlg;
-	LoginClass* dlg = new LoginClass(this);
-	
 	if (login_dlg.exec() == QDialog::Accepted) {
 	//if (true) {
 
@@ -6394,7 +6392,34 @@ void OBSBasic::on_streamButton_clicked()	//when the streamButton clicked
 			ui->streamButton->setChecked(false);
 			return;
 		}
-		beginStream();
+		//tag
+		QJsonObject courseData = courseStream.at(clicked_row).toObject();
+
+		QString beginDate = courseData.value("beginDate").toString();
+		QString beginTime = courseData.value("beginTime").toString();
+		beginDate.append(" ");
+		beginDate.append(beginTime);
+		beginDate.append(":00");
+		long int currentDate_T,beginDate_T;
+		beginDate_T = QDateTime::fromString(beginDate, "yyyy-MM-dd hh:mm:ss").toTime_t();
+		//test  beginDate_T = QDateTime::fromString("2021-01-14 13:30:00", "yyyy-MM-dd hh:mm:ss").toTime_t();
+		currentDate_T = QDateTime::currentDateTime().toTime_t();
+		if (abs(beginDate_T - currentDate_T) < 86400)
+		{
+			if ((beginDate_T - currentDate_T) < 10 * 60)
+			{
+				beginStream();
+			}
+			else {
+
+				OBSMessageBox::warning(this, "提示","直播时间未开始，请稍后再试 ",QMessageBox::Yes );
+			}
+		}
+		else {
+			OBSMessageBox::warning(this, "提示","只能直播当天的课程 ",QMessageBox::Yes);
+		}
+
+
 		auto action =
 			UIValidation::StreamSettingsConfirmation(this, service);
 		switch (action) {
