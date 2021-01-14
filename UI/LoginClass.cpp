@@ -1,4 +1,4 @@
-#include "LoginClass.h"
+﻿#include "LoginClass.h"
 #include <QMessageBox>
 #include <QByteArray>
 #include <QString>
@@ -113,40 +113,40 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 								QString beginDate = data_obj.take("beginDate").toString();
 								QString beginTime = data_obj.take("beginTime").toString();
 								QString endTime = data_obj.take("endTime").toString();
-								coursesList.append("课程:");
+								coursesList.append(QString::fromLocal8Bit("课程："));
 								coursesList.append(curriculumName);
 								coursesList.append("  ");
-								coursesList.append("直播日期:");
+								coursesList.append(QString::fromLocal8Bit("直播日期："));
 								coursesList.append(beginDate);
 								coursesList.append("  ");
-								coursesList.append("开始时间:");
+								coursesList.append(QString::fromLocal8Bit("开始时间"));
 								coursesList.append(beginTime);
 								coursesList.append("  ");
 
-								coursesList.append("结束时间:");
+								coursesList.append(QString::fromLocal8Bit("结束时间："));
 								coursesList.append(endTime);
 								coursesList.append("  ");
 
-								coursesList.append("直播状态:");
+								coursesList.append(QString::fromLocal8Bit("直播状态："));
 
 								QJsonValue playStatus_json = data_obj.take("playStatus");
 								int playStatus = playStatus_json.toInt();
 								
 								if (playStatus == 0)
 								{
-									coursesList.append("未开始 ");
+									coursesList.append(QString::fromLocal8Bit("未开始"));
 								}
 								else if (playStatus == 1)
 								{
-									coursesList.append("直播中 ");
+									coursesList.append(QString::fromLocal8Bit("直播中"));
 								}
 								else if (playStatus == 2)
 								{
-									coursesList.append("直播中断 ");
+									coursesList.append(QString::fromLocal8Bit("直播中断"));
 								}
 								else if (playStatus == 3)
 								{
-									coursesList.append("未开始 ");
+									coursesList.append(QString::fromLocal8Bit("未开始"));
 								}
 								courseListData.append(coursesList);
 								

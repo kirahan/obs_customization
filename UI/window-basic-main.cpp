@@ -1,4 +1,4 @@
-/******************************************************************************
+﻿/******************************************************************************
     Copyright (C) 2013-2015 by Hugh Bailey <obs.jim@gmail.com>
                                Zachary Lund <admin@computerquip.com>
                                Philippe Groarke <philippe.groarke@gmail.com>
@@ -273,9 +273,8 @@ OBSBasic::OBSBasic(QWidget *parent)
 		ui->courseDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 		ui->courseList->setStyleSheet(
                            "QListWidget::Item{background:#656A6E; }"
-                           "QListWidget::Item:hover{background:#19334B; }"
-                           "QListWidget::item:selected{background:lightgray; color:#19334B; }"
-                           "QListWidget::item:selected:!active{border-width:0px; background:#19334B; }");
+                           "QListWidget::Item:selected{background:#19334B;color:#FFFFFF; }"
+                        );
 		for (int i = 1; i < courseListData.count(); i++)
 		{
 			ui->courseList->setWordWrap(true);
@@ -6412,11 +6411,13 @@ void OBSBasic::on_streamButton_clicked()	//when the streamButton clicked
 			}
 			else {
 
-				OBSMessageBox::warning(this, "提示","直播时间未开始，请稍后再试 ",QMessageBox::Yes );
+				OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("直播还未开始，请稍后再试"),QMessageBox::Yes );
+				return;
 			}
 		}
 		else {
-			OBSMessageBox::warning(this, "提示","只能直播当天的课程 ",QMessageBox::Yes);
+			OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("只能直播当天的课程"),QMessageBox::Yes);
+			return;
 		}
 
 
