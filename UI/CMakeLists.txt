@@ -255,7 +255,9 @@ set(obs_SOURCES
 	obs-proxy-style.cpp
 	locked-checkbox.cpp
 	visibility-checkbox.cpp
-	media-slider.cpp)
+	media-slider.cpp
+	LoginClass.cpp
+	)
 
 set(obs_HEADERS
 	${obs_PLATFORM_HEADERS}
@@ -325,7 +327,9 @@ set(obs_HEADERS
 	log-viewer.hpp
 	obs-proxy-style.hpp
 	obs-proxy-style.hpp
-	media-slider.hpp)
+	media-slider.hpp
+	LoginClass.h
+	)
 
 set(obs_importers_HEADERS
 	importers/importers.hpp)
@@ -364,7 +368,9 @@ set(obs_UI
 	forms/OBSUpdate.ui
 	forms/OBSRemux.ui
 	forms/OBSImporter.ui
-	forms/OBSAbout.ui)
+	forms/OBSAbout.ui
+	forms/LoginClass.ui
+	)
 
 set(obs_QRC
 	forms/obs.qrc)
@@ -393,11 +399,14 @@ if(WIN32)
 			OUTPUT_NAME "obs${_output_suffix}")
 endif()
 
+find_package(Qt5Network REQUIRED)
+
 target_link_libraries(obs
 	libobs
 	Qt5::Widgets
 	Qt5::Svg
 	Qt5::Xml
+	Qt5::Network
 	obs-frontend-api
 	${FFMPEG_LIBRARIES}
 	${LIBCURL_LIBRARIES}

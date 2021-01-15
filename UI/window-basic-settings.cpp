@@ -48,6 +48,13 @@
 
 #include <util/platform.h>
 #include "ui-config.h"
+#include "LoginClass.h"
+
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonParseError>
+#include <QJsonValue>
+#include <QJsonObject>
 
 #define ENCODER_HIDE_FLAGS \
 	(OBS_ENCODER_CAP_DEPRECATED | OBS_ENCODER_CAP_INTERNAL)
@@ -4963,4 +4970,61 @@ void OBSBasicSettings::RecreateOutputResolutionWidget()
 
 	ui->outputResolution->lineEdit()->setValidator(
 		ui->baseResolution->lineEdit()->validator());
+}
+void OBSBasicSettings::saveCourseStream()
+{
+	QJsonObject courseData = courseStream.at(clicked_row).toObject();
+	//qDebug() << "courseStream:" << json.value("pushDomain").toString();
+	QString pushDomain = courseData.value("pushDomain").toString();
+	QString pushUrl = courseData.value("pushUrl").toString();
+	char* pushDom;
+	char* pushUr;
+	QByteArray push = pushDomain.toLatin1();
+	QByteArray pushU = pushUrl.toLatin1();
+	pushDom = push.data();
+	pushUr = pushU.data();
+
+
+	bool customServer = IsCustomService();
+	const char* service_id = "rtmp_custom";
+
+	obs_service_t* oldService = main->GetService();
+	OBSData hotkeyData = obs_hotkeys_save_service(oldService);
+	obs_data_release(hotkeyData);
+
+	OBSData settings = obs_data_create();
+	obs_data_release(settings);
+
+	//if (!customServer) {
+	if (false) {
+		obs_data_set_string(settings, "service",
+			QT_TO_UTF8(ui->service->currentText()));
+		obs_data_set_string(
+			settings, "server",
+			QT_TO_UTF8(ui->server->currentData().toString()));
+	}
+	else {
+		obs_data_set_string(settings, "server",
+			pushDom);
+		obs_data_set_bool(settings, "use_auth",
+			false);
+		
+	}
+	obs_data_set_bool(settings, "bwtest", false);
+	obs_data_set_string(settings, "key", pushUr);
+	OBSService newService = obs_service_create(
+		service_id, "default_service", settings, hotkeyData);
+	obs_service_release(newService);
+	if (!newService)
+		return;
+
+	main->SetService(newService);
+	main->SaveService();
+	main->auth = auth;
+
+	/*
+	if (!!main->auth)
+		main->auth->LoadUI();
+	*/
+	
 }
