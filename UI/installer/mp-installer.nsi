@@ -14,8 +14,8 @@
 ; functions. You can find it at
 ; https://github.com/notr1ch/OBSInstallerUtils
 
-Unicode true
-ManifestDPIAware true
+;Unicode true
+;ManifestDPIAware true
 
 ; Define your application name
 !define APPNAME "OBS Studio"
@@ -76,7 +76,7 @@ RequestExecutionLevel admin
 !define MUI_LICENSEPAGE_BUTTON "&Next >"
 
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "new\core\data\obs-studio\license\gplv2.txt"
+;!insertmacro MUI_PAGE_LICENSE "new\core\data\obs-studio\license\gplv2.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
@@ -199,7 +199,7 @@ Function PreReqCheck
 
 	; Check previous instance
 	check32BitRunning:
-	OBSInstallerUtils::IsProcessRunning "obs32.exe"
+	;OBSInstallerUtils::IsProcessRunning "obs32.exe"
 	IntCmp $R0 1 0 notRunning1
 		MessageBox MB_RETRYCANCEL|MB_ICONEXCLAMATION "${APPNAME} is already running. Please close it first before installing a new version." /SD IDCANCEL IDRETRY check32BitRunning
 		Quit
@@ -207,7 +207,7 @@ Function PreReqCheck
 
 	${if} ${RunningX64}
 		check64BitRunning:
-		OBSInstallerUtils::IsProcessRunning "obs64.exe"
+;		OBSInstallerUtils::IsProcessRunning "obs64.exe"
 		IntCmp $R0 1 0 notRunning2
 			MessageBox MB_RETRYCANCEL|MB_ICONEXCLAMATION "${APPNAME} is already running. Please close it first before installing a new version." /SD IDCANCEL IDRETRY check64BitRunning
 			Quit
@@ -218,16 +218,16 @@ FunctionEnd
 Var dllFilesInUse
 
 Function checkDLLs
-	OBSInstallerUtils::ResetInUseFileChecks
+	;OBSInstallerUtils::ResetInUseFileChecks
 !ifdef INSTALL64
 	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\bin\64bit\avutil-56.dll"
 	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\bin\64bit\swscale-5.dll"
 !else
-	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\bin\32bit\avutil-56.dll"
-	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\bin\32bit\swscale-5.dll"
+	;OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\bin\32bit\avutil-56.dll"
+	;OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\bin\32bit\swscale-5.dll"
 !endif
-	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\data\obs-plugins\win-capture\graphics-hook32.dll"
-	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\data\obs-plugins\win-capture\graphics-hook64.dll"
+	;OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\data\obs-plugins\win-capture\graphics-hook32.dll"
+	;OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\data\obs-plugins\win-capture\graphics-hook64.dll"
 	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\data\obs-plugins\win-dshow\obs-virtualcam-module32.dll"
 	OBSInstallerUtils::AddInUseFileCheck "$INSTDIR\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll"
 	OBSInstallerUtils::AddInUseFileCheck "$APPDATA\obs-studio-hook\graphics-hook32.dll"

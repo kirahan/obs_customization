@@ -280,6 +280,7 @@ int os_get_config_path(char *dst, size_t size, const char *name)
 	return os_get_path_internal(dst, size, name, CSIDL_APPDATA);
 }
 
+
 char *os_get_config_path_ptr(const char *name)
 {
 	return os_get_path_ptr_internal(name, CSIDL_APPDATA);

@@ -16,8 +16,10 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ******************************************************************************/
+#pragma execution_character_set("utf-8")
 
 #include <ctime>
+#include <string>
 #include <obs.hpp>
 #include <QGuiApplication>
 #include <QMessageBox>
@@ -92,11 +94,25 @@ using namespace std;
 
 #include "ui-config.h"
 
+
+/******************************************************************************
+    modify by kira
+    增加了一些字段，使得自定义更加方便
+******************************************************************************/
+
+string SoftWareTitle = "TSP-";
+string SoftWareVersion = "1.0.0.1";
+string SoftWareOrganizationName = "-辉生互融科技";
+QString SoftSystemTrayName = "TSP";
+QString SoftStreamingReconnectionMessage = "TSP";
+
+
 struct QCef;
 struct QCefCookieManager;
 
 QCef *cef = nullptr;
 QCefCookieManager *panel_cookies = nullptr;
+bool isLogined = false;
 
 void DestroyPanelCookieManager();
 
@@ -202,7 +218,7 @@ OBSBasic::OBSBasic(QWidget *parent)
 	LoginClass login_dlg;
 	if (login_dlg.exec() == QDialog::Accepted) {
 	//if (true) {
-
+		isLogined = true;
 		qRegisterMetaTypeStreamOperators<SignalContainer<OBSScene>>(
 			"SignalContainer<OBSScene>");
 
@@ -1690,122 +1706,137 @@ static void AddProjectorMenuMonitors(QMenu *parent, QObject *target,
 
 void OBSBasic::OBSInit()
 {
-	ui->scenesDock->setVisible(false);
-	ui->scenesDock->hide();
-	ui->sourcesDock->setVisible(false);
-	ui->mixerDock->setVisible(false);
-	ui->transitionsDock->setVisible(false);
-	ui->controlsDock->setVisible(false);
+	LoginClass login_dlg;
+	if (isLogined) {
+		//ui->scenesDock->setVisible(false);
+		//ui->scenesDock->hide();
+		//ui->sourcesDock->setVisible(false);
+		//ui->mixerDock->setVisible(false);
+		//ui->transitionsDock->setVisible(false);
+		//ui->sourcesToolbar->setVisible(false);
+		//ui->controlsDock->setVisible(false);
+		//commit by kira
+		//隐藏标题栏
+		ui->menu_File->menuAction()->setVisible(false); //隐藏-菜单
+		ui->viewMenu->menuAction()->setVisible(false);//隐藏-视图
+		ui->profileMenu->menuAction()->setVisible(false);//隐藏-配置
+		ui->menuTools->menuAction()->setVisible(false);//隐藏-工具
+		ui->sceneCollectionMenu->menuAction()->setVisible(false);//隐藏-场景合集
+		ui->menuBasic_MainMenu_Edit->menuAction()->setVisible(false);//隐藏-编辑
+		ui->menuBasic_MainMenu_Help->menuAction()->setVisible(false);//隐藏-帮助
+		ui->recordButton->setVisible(false);
+		ui->modeSwitch->setVisible(false);
 
-	ProfileScope("OBSBasic::OBSInit");
+		ProfileScope("OBSBasic::OBSInit");
 
-	const char *sceneCollection = config_get_string(
-		App()->GlobalConfig(), "Basic", "SceneCollectionFile");
-	char savePath[512];
-	char fileName[512];
-	int ret;
+		const char* sceneCollection = config_get_string(
+			App()->GlobalConfig(), "Basic", "SceneCollectionFile");
+		char savePath[512];
+		char fileName[512];
+		int ret;
 
-	if (!sceneCollection)
-		throw "Failed to get scene collection name";
+		if (!sceneCollection)
+			throw "Failed to get scene collection name";
 
-	ret = snprintf(fileName, 512, "obs-studio/basic/scenes/%s.json",
-		       sceneCollection);
-	if (ret <= 0)
-		throw "Failed to create scene collection file name";
+		ret = snprintf(fileName, 512, "obs-studio/basic/scenes/%s.json",
+			sceneCollection);
+		if (ret <= 0)
+			throw "Failed to create scene collection file name";
 
-	ret = GetConfigPath(savePath, sizeof(savePath), fileName);
-	if (ret <= 0)
-		throw "Failed to get scene collection json file path";
+		ret = GetConfigPath(savePath, sizeof(savePath), fileName);
+		if (ret <= 0)
+			throw "Failed to get scene collection json file path";
 
-	if (!InitBasicConfig())
-		throw "Failed to load basic.ini";
-	if (!ResetAudio())
-		throw "Failed to initialize audio";
+		if (!InitBasicConfig())
+			throw "Failed to load basic.ini";
+		if (!ResetAudio())
+			throw "Failed to initialize audio";
 
-	ret = ResetVideo();
+		ret = ResetVideo();
 
-	switch (ret) {
-	case OBS_VIDEO_MODULE_NOT_FOUND:
-		throw "Failed to initialize video:  Graphics module not found";
-	case OBS_VIDEO_NOT_SUPPORTED:
-		throw UNSUPPORTED_ERROR;
-	case OBS_VIDEO_INVALID_PARAM:
-		throw "Failed to initialize video:  Invalid parameters";
-	default:
-		if (ret != OBS_VIDEO_SUCCESS)
-			throw UNKNOWN_ERROR;
-	}
+		switch (ret) {
+		case OBS_VIDEO_MODULE_NOT_FOUND:
+			throw "Failed to initialize video:  Graphics module not found";
+		case OBS_VIDEO_NOT_SUPPORTED:
+			throw UNSUPPORTED_ERROR;
+		case OBS_VIDEO_INVALID_PARAM:
+			throw "Failed to initialize video:  Invalid parameters";
+		default:
+			if (ret != OBS_VIDEO_SUCCESS)
+				throw UNKNOWN_ERROR;
+		}
 
-	/* load audio monitoring */
+		/* load audio monitoring */
 #if defined(_WIN32) || defined(__APPLE__) || HAVE_PULSEAUDIO
-	const char *device_name =
-		config_get_string(basicConfig, "Audio", "MonitoringDeviceName");
-	const char *device_id =
-		config_get_string(basicConfig, "Audio", "MonitoringDeviceId");
+		const char* device_name =
+			config_get_string(basicConfig, "Audio", "MonitoringDeviceName");
+		const char* device_id =
+			config_get_string(basicConfig, "Audio", "MonitoringDeviceId");
 
-	obs_set_audio_monitoring_device(device_name, device_id);
+		obs_set_audio_monitoring_device(device_name, device_id);
 
-	blog(LOG_INFO, "Audio monitoring device:\n\tname: %s\n\tid: %s",
-	     device_name, device_id);
+		blog(LOG_INFO, "Audio monitoring device:\n\tname: %s\n\tid: %s",
+			device_name, device_id);
 #endif
 
-	InitOBSCallbacks();
-	InitHotkeys();
+		InitOBSCallbacks();
+		InitHotkeys();
 
-	/* hack to prevent elgato from loading its own Qt5Network that it tries
-	 * to ship with */
+		/* hack to prevent elgato from loading its own Qt5Network that it tries
+		 * to ship with */
 #if defined(_WIN32) && !defined(_DEBUG)
-	LoadLibraryW(L"Qt5Network");
+		LoadLibraryW(L"Qt5Network");
 #endif
 
-	AddExtraModulePaths();
-	blog(LOG_INFO, "---------------------------------");
-	obs_load_all_modules();
-	blog(LOG_INFO, "---------------------------------");
-	obs_log_loaded_modules();
-	blog(LOG_INFO, "---------------------------------");
-	obs_post_load_modules();
+		AddExtraModulePaths();
+		blog(LOG_INFO, "---------------------------------");
+		obs_load_all_modules();
+		blog(LOG_INFO, "---------------------------------");
+		obs_log_loaded_modules();
+		blog(LOG_INFO, "---------------------------------");
+		obs_post_load_modules();
 
 #ifdef BROWSER_AVAILABLE
-	cef = obs_browser_init_panel();
+		cef = obs_browser_init_panel();
 #endif
 
-	obs_data_t *obsData = obs_get_private_data();
-	vcamEnabled = obs_data_get_bool(obsData, "vcamEnabled");
-	if (vcamEnabled) {
-		AddVCamButton();
-	}
-	obs_data_release(obsData);
+		obs_data_t* obsData = obs_get_private_data();
+		vcamEnabled = obs_data_get_bool(obsData, "vcamEnabled");
+		if (vcamEnabled) {
+			AddVCamButton();
+		}
+		obs_data_release(obsData);
 
-	InitBasicConfigDefaults2();
+		InitBasicConfigDefaults2();
 
-	CheckForSimpleModeX264Fallback();
+		CheckForSimpleModeX264Fallback();
 
-	blog(LOG_INFO, STARTUP_SEPARATOR);
+		blog(LOG_INFO, STARTUP_SEPARATOR);
 
-	ResetOutputs();
-	CreateHotkeys();
+		ResetOutputs();
+		CreateHotkeys();
 
-	if (!InitService())
-		throw "Failed to initialize service";
+		if (!InitService())
+			throw "Failed to initialize service";
 
-	InitPrimitives();
+		InitPrimitives();
 
-	sceneDuplicationMode = config_get_bool(
-		App()->GlobalConfig(), "BasicWindow", "SceneDuplicationMode");
-	swapScenesMode = config_get_bool(App()->GlobalConfig(), "BasicWindow",
-					 "SwapScenesMode");
-	editPropertiesMode = config_get_bool(
-		App()->GlobalConfig(), "BasicWindow", "EditPropertiesMode");
+		sceneDuplicationMode = config_get_bool(
+			App()->GlobalConfig(), "BasicWindow", "SceneDuplicationMode");
+		swapScenesMode = config_get_bool(App()->GlobalConfig(), "BasicWindow",
+			"SwapScenesMode");
+		editPropertiesMode = config_get_bool(
+			App()->GlobalConfig(), "BasicWindow", "EditPropertiesMode");
 
-	if (!opt_studio_mode) {
-		SetPreviewProgramMode(config_get_bool(App()->GlobalConfig(),
-						      "BasicWindow",
-						      "PreviewProgramMode"));
-	} else {
-		SetPreviewProgramMode(true);
-		opt_studio_mode = false;
-	}
+		if (!opt_studio_mode) {
+			SetPreviewProgramMode(config_get_bool(App()->GlobalConfig(),
+				"BasicWindow",
+				"PreviewProgramMode"));
+		}
+		else {
+			SetPreviewProgramMode(true);
+			opt_studio_mode = false;
+		}
 
 #define SET_VISIBILITY(name, control)                                         \
 	do {                                                                  \
@@ -1817,203 +1848,205 @@ void OBSBasic::OBSInit()
 		}                                                             \
 	} while (false)
 
-	SET_VISIBILITY("ShowListboxToolbars", toggleListboxToolbars);
-	SET_VISIBILITY("ShowStatusBar", toggleStatusBar);
+		SET_VISIBILITY("ShowListboxToolbars", toggleListboxToolbars);
+		SET_VISIBILITY("ShowStatusBar", toggleStatusBar);
 #undef SET_VISIBILITY
 
-	bool sourceIconsVisible = config_get_bool(
-		GetGlobalConfig(), "BasicWindow", "ShowSourceIcons");
-	ui->toggleSourceIcons->setChecked(sourceIconsVisible);
+		bool sourceIconsVisible = config_get_bool(
+			GetGlobalConfig(), "BasicWindow", "ShowSourceIcons");
+		ui->toggleSourceIcons->setChecked(sourceIconsVisible);
 
-	bool contextVisible = config_get_bool(
-		App()->GlobalConfig(), "BasicWindow", "ShowContextToolbars");
-	ui->toggleContextBar->setChecked(contextVisible);
-	ui->contextContainer->setVisible(contextVisible);
-	if (contextVisible)
-		UpdateContextBar(true);
+		bool contextVisible = config_get_bool(
+			App()->GlobalConfig(), "BasicWindow", "ShowContextToolbars");
+		ui->toggleContextBar->setChecked(contextVisible);
+		ui->contextContainer->setVisible(contextVisible);
+		if (contextVisible)
+			UpdateContextBar(true);
 
-	{
-		ProfileScope("OBSBasic::Load");
+		{
+			ProfileScope("OBSBasic::Load");
+			disableSaving--;
+			Load(savePath);
+			disableSaving++;
+		}
+
+		TimedCheckForUpdates();
+		loaded = true;
+
+		previewEnabled = config_get_bool(App()->GlobalConfig(), "BasicWindow",
+			"PreviewEnabled");
+
+		if (!previewEnabled && !IsPreviewProgramMode())
+			QMetaObject::invokeMethod(this, "EnablePreviewDisplay",
+				Qt::QueuedConnection,
+				Q_ARG(bool, previewEnabled));
+
+#ifdef _WIN32
+		uint32_t winVer = GetWindowsVersion();
+		if (winVer > 0 && winVer < 0x602) {
+			bool disableAero =
+				config_get_bool(basicConfig, "Video", "DisableAero");
+			SetAeroEnabled(!disableAero);
+		}
+#endif
+
+		RefreshSceneCollections();
+		RefreshProfiles();
 		disableSaving--;
-		Load(savePath);
-		disableSaving++;
-	}
 
-	TimedCheckForUpdates();
-	loaded = true;
+		auto addDisplay = [this](OBSQTDisplay* window) {
+			obs_display_add_draw_callback(window->GetDisplay(),
+				OBSBasic::RenderMain, this);
 
-	previewEnabled = config_get_bool(App()->GlobalConfig(), "BasicWindow",
-					 "PreviewEnabled");
+			struct obs_video_info ovi;
+			if (obs_get_video_info(&ovi))
+				ResizePreview(ovi.base_width, ovi.base_height);
+		};
 
-	if (!previewEnabled && !IsPreviewProgramMode())
-		QMetaObject::invokeMethod(this, "EnablePreviewDisplay",
-					  Qt::QueuedConnection,
-					  Q_ARG(bool, previewEnabled));
+		connect(ui->preview, &OBSQTDisplay::DisplayCreated, addDisplay);
 
 #ifdef _WIN32
-	uint32_t winVer = GetWindowsVersion();
-	if (winVer > 0 && winVer < 0x602) {
-		bool disableAero =
-			config_get_bool(basicConfig, "Video", "DisableAero");
-		SetAeroEnabled(!disableAero);
-	}
+		SetWin32DropStyle(this);
+		show();
 #endif
 
-	RefreshSceneCollections();
-	RefreshProfiles();
-	disableSaving--;
-
-	auto addDisplay = [this](OBSQTDisplay *window) {
-		obs_display_add_draw_callback(window->GetDisplay(),
-					      OBSBasic::RenderMain, this);
-
-		struct obs_video_info ovi;
-		if (obs_get_video_info(&ovi))
-			ResizePreview(ovi.base_width, ovi.base_height);
-	};
-
-	connect(ui->preview, &OBSQTDisplay::DisplayCreated, addDisplay);
-
-#ifdef _WIN32
-	SetWin32DropStyle(this);
-	show();
-#endif
-
-	bool alwaysOnTop = config_get_bool(App()->GlobalConfig(), "BasicWindow",
-					   "AlwaysOnTop");
-	if (alwaysOnTop || opt_always_on_top) {
-		SetAlwaysOnTop(this, true);
-		ui->actionAlwaysOnTop->setChecked(true);
-	}
+		bool alwaysOnTop = config_get_bool(App()->GlobalConfig(), "BasicWindow",
+			"AlwaysOnTop");
+		if (alwaysOnTop || opt_always_on_top) {
+			SetAlwaysOnTop(this, true);
+			ui->actionAlwaysOnTop->setChecked(true);
+		}
 
 #ifndef _WIN32
-	show();
+		show();
 #endif
 
-	/* setup stats dock */
-	OBSBasicStats *statsDlg = new OBSBasicStats(statsDock, false);
-	statsDock->setWidget(statsDlg);
+		/* setup stats dock */
+		OBSBasicStats* statsDlg = new OBSBasicStats(statsDock, false);
+		statsDock->setWidget(statsDlg);
 
-	/* ----------------------------- */
-	/* add custom browser docks      */
+		/* ----------------------------- */
+		/* add custom browser docks      */
 
 #ifdef BROWSER_AVAILABLE
-	if (cef) {
-		QAction *action = new QAction(QTStr("Basic.MainMenu."
-						    "View.Docks."
-						    "CustomBrowserDocks"),
-					      this);
-		ui->viewMenuDocks->insertAction(ui->toggleScenes, action);
-		connect(action, &QAction::triggered, this,
-			&OBSBasic::ManageExtraBrowserDocks);
-		ui->viewMenuDocks->insertSeparator(ui->toggleScenes);
+		if (cef) {
+			QAction* action = new QAction(QTStr("Basic.MainMenu."
+				"View.Docks."
+				"CustomBrowserDocks"),
+				this);
+			ui->viewMenuDocks->insertAction(ui->toggleScenes, action);
+			connect(action, &QAction::triggered, this,
+				&OBSBasic::ManageExtraBrowserDocks);
+			ui->viewMenuDocks->insertSeparator(ui->toggleScenes);
 
-		LoadExtraBrowserDocks();
-	}
+			LoadExtraBrowserDocks();
+		}
 #endif
 
-	const char *dockStateStr = config_get_string(
-		App()->GlobalConfig(), "BasicWindow", "DockState");
+		const char* dockStateStr = config_get_string(
+			App()->GlobalConfig(), "BasicWindow", "DockState");
 
-	if (!dockStateStr) {
-		on_resetUI_triggered();
-	} else {
-		QByteArray dockState =
-			QByteArray::fromBase64(QByteArray(dockStateStr));
-		if (!restoreState(dockState))
+		if (!dockStateStr) {
 			on_resetUI_triggered();
-	}
-
-	bool pre23Defaults = config_get_bool(App()->GlobalConfig(), "General",
-					     "Pre23Defaults");
-	if (pre23Defaults) {
-		bool resetDockLock23 = config_get_bool(
-			App()->GlobalConfig(), "General", "ResetDockLock23");
-		if (!resetDockLock23) {
-			config_set_bool(App()->GlobalConfig(), "General",
-					"ResetDockLock23", true);
-			config_remove_value(App()->GlobalConfig(),
-					    "BasicWindow", "DocksLocked");
-			config_save_safe(App()->GlobalConfig(), "tmp", nullptr);
 		}
-	}
+		else {
+			QByteArray dockState =
+				QByteArray::fromBase64(QByteArray(dockStateStr));
+			if (!restoreState(dockState))
+				on_resetUI_triggered();
+		}
 
-	bool docksLocked = config_get_bool(App()->GlobalConfig(), "BasicWindow",
-					   "DocksLocked");
-	on_lockUI_toggled(docksLocked);
-	ui->lockUI->blockSignals(true);
-	ui->lockUI->setChecked(docksLocked);
-	ui->lockUI->blockSignals(false);
+		bool pre23Defaults = config_get_bool(App()->GlobalConfig(), "General",
+			"Pre23Defaults");
+		if (pre23Defaults) {
+			bool resetDockLock23 = config_get_bool(
+				App()->GlobalConfig(), "General", "ResetDockLock23");
+			if (!resetDockLock23) {
+				config_set_bool(App()->GlobalConfig(), "General",
+					"ResetDockLock23", true);
+				config_remove_value(App()->GlobalConfig(),
+					"BasicWindow", "DocksLocked");
+				config_save_safe(App()->GlobalConfig(), "tmp", nullptr);
+			}
+		}
+
+		bool docksLocked = config_get_bool(App()->GlobalConfig(), "BasicWindow",
+			"DocksLocked");
+		on_lockUI_toggled(docksLocked);
+		ui->lockUI->blockSignals(true);
+		ui->lockUI->setChecked(docksLocked);
+		ui->lockUI->blockSignals(false);
 
 #ifndef __APPLE__
-	SystemTray(true);
+		SystemTray(true);
 #endif
 
 #ifdef __APPLE__
-	disableColorSpaceConversion(this);
+		disableColorSpaceConversion(this);
 #endif
 
-	bool has_last_version = config_has_user_value(App()->GlobalConfig(),
-						      "General", "LastVersion");
-	bool first_run =
-		config_get_bool(App()->GlobalConfig(), "General", "FirstRun");
+		bool has_last_version = config_has_user_value(App()->GlobalConfig(),
+			"General", "LastVersion");
+		bool first_run =
+			config_get_bool(App()->GlobalConfig(), "General", "FirstRun");
 
-	if (!first_run) {
-		config_set_bool(App()->GlobalConfig(), "General", "FirstRun",
+		if (!first_run) {
+			config_set_bool(App()->GlobalConfig(), "General", "FirstRun",
 				true);
-		config_save_safe(App()->GlobalConfig(), "tmp", nullptr);
-	}
+			config_save_safe(App()->GlobalConfig(), "tmp", nullptr);
+		}
 
-	if (!first_run && !has_last_version && !Active())
-		QMetaObject::invokeMethod(this, "on_autoConfigure_triggered",
-					  Qt::QueuedConnection);
+		if (!first_run && !has_last_version && !Active())
+			QMetaObject::invokeMethod(this, "on_autoConfigure_triggered",
+				Qt::QueuedConnection);
 
-	ToggleMixerLayout(config_get_bool(App()->GlobalConfig(), "BasicWindow",
-					  "VerticalVolControl"));
+		ToggleMixerLayout(config_get_bool(App()->GlobalConfig(), "BasicWindow",
+			"VerticalVolControl"));
 
-	if (config_get_bool(basicConfig, "General", "OpenStatsOnStartup"))
-		on_stats_triggered();
+		if (config_get_bool(basicConfig, "General", "OpenStatsOnStartup"))
+			on_stats_triggered();
 
-	OBSBasicStats::InitializeValues();
+		OBSBasicStats::InitializeValues();
 
-	/* ----------------------- */
-	/* Add multiview menu      */
+		/* ----------------------- */
+		/* Add multiview menu      */
 
-	ui->viewMenu->addSeparator();
+		ui->viewMenu->addSeparator();
 
-	multiviewProjectorMenu = new QMenu(QTStr("MultiviewProjector"));
-	ui->viewMenu->addMenu(multiviewProjectorMenu);
-	AddProjectorMenuMonitors(multiviewProjectorMenu, this,
-				 SLOT(OpenMultiviewProjector()));
-	connect(ui->viewMenu->menuAction(), &QAction::hovered, this,
-		&OBSBasic::UpdateMultiviewProjectorMenu);
-	ui->viewMenu->addAction(QTStr("MultiviewWindowed"), this,
-				SLOT(OpenMultiviewWindow()));
+		multiviewProjectorMenu = new QMenu(QTStr("MultiviewProjector"));
+		ui->viewMenu->addMenu(multiviewProjectorMenu);
+		AddProjectorMenuMonitors(multiviewProjectorMenu, this,
+			SLOT(OpenMultiviewProjector()));
+		connect(ui->viewMenu->menuAction(), &QAction::hovered, this,
+			&OBSBasic::UpdateMultiviewProjectorMenu);
+		ui->viewMenu->addAction(QTStr("MultiviewWindowed"), this,
+			SLOT(OpenMultiviewWindow()));
 
-	ui->sources->UpdateIcons();
+		ui->sources->UpdateIcons();
 
 #if !defined(_WIN32) && !defined(__APPLE__)
-	delete ui->actionShowCrashLogs;
-	delete ui->actionUploadLastCrashLog;
-	delete ui->menuCrashLogs;
-	delete ui->actionCheckForUpdates;
-	ui->actionShowCrashLogs = nullptr;
-	ui->actionUploadLastCrashLog = nullptr;
-	ui->menuCrashLogs = nullptr;
-	ui->actionCheckForUpdates = nullptr;
+		delete ui->actionShowCrashLogs;
+		delete ui->actionUploadLastCrashLog;
+		delete ui->menuCrashLogs;
+		delete ui->actionCheckForUpdates;
+		ui->actionShowCrashLogs = nullptr;
+		ui->actionUploadLastCrashLog = nullptr;
+		ui->menuCrashLogs = nullptr;
+		ui->actionCheckForUpdates = nullptr;
 #elif _WIN32 || __APPLE__
-	if (App()->IsUpdaterDisabled())
-		ui->actionCheckForUpdates->setEnabled(false);
+		if (App()->IsUpdaterDisabled())
+			ui->actionCheckForUpdates->setEnabled(false);
 #endif
 
-	OnFirstLoad();
+		OnFirstLoad();
 
-	activateWindow();
+		activateWindow();
 
 #ifdef __APPLE__
-	QMetaObject::invokeMethod(this, "DeferredSysTrayLoad",
-				  Qt::QueuedConnection, Q_ARG(int, 10));
+		QMetaObject::invokeMethod(this, "DeferredSysTrayLoad",
+			Qt::QueuedConnection, Q_ARG(int, 10));
 #endif
+	}
 }
 
 void OBSBasic::OnFirstLoad()
@@ -6416,13 +6449,12 @@ void OBSBasic::on_streamButton_clicked()	//when the streamButton clicked
 				beginStream();
 			}
 			else {
-
-				OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("直播还未开始，请稍后再试"),QMessageBox::Yes );
+				OBSMessageBox::warning(this, "提示","直播未开始,请稍后再试",QMessageBox::Yes);
 				return;
 			}
 		}
 		else {
-			OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("只能直播当天的课程"),QMessageBox::Yes);
+			OBSMessageBox::warning(this,"提示", "只能直播当天的课程",QMessageBox::Yes);
 			return;
 		}
 
@@ -7357,17 +7389,11 @@ void OBSBasic::UpdateTitleBar()
 		config_get_string(App()->GlobalConfig(), "Basic", "Profile");
 	const char *sceneCollection = config_get_string(
 		App()->GlobalConfig(), "Basic", "SceneCollection");
-
-	name << "OBS ";
-	if (previewProgramMode)
-		name << "Studio ";
-
-	name << App()->GetVersionString();
-	if (App()->IsPortableMode())
-		name << " - Portable Mode";
-
-	name << " - " << Str("TitleBar.Profile") << ": " << profile;
-	name << " - " << Str("TitleBar.Scenes") << ": " << sceneCollection;
+	//commit by kira
+	//修改标题栏
+	name << SoftWareTitle;
+	name << SoftWareVersion;
+	name << SoftWareOrganizationName;
 
 	setWindowTitle(QT_UTF8(name.str().c_str()));
 }
@@ -7670,9 +7696,11 @@ void OBSBasic::SystemTrayInit()
 #else
 	QIcon trayIconFile = QIcon(":/res/images/obs.png");
 #endif
+	//commit by kira
+	//底部状态栏
 	trayIcon.reset(new QSystemTrayIcon(
 		QIcon::fromTheme("obs-tray", trayIconFile), this));
-	trayIcon->setToolTip("OBS Studio");
+	trayIcon->setToolTip(SoftSystemTrayName);
 
 	showHide = new QAction(QTStr("Basic.SystemTray.Show"), trayIcon.data());
 	sysTrayStream = new QAction(QTStr("Basic.Main.StartStreaming"),
@@ -7734,6 +7762,7 @@ void OBSBasic::IconActivated(QSystemTrayIcon::ActivationReason reason)
 #endif
 }
 
+
 void OBSBasic::SysTrayNotify(const QString &text,
 			     QSystemTrayIcon::MessageIcon n)
 {
@@ -7741,7 +7770,7 @@ void OBSBasic::SysTrayNotify(const QString &text,
 	    QSystemTrayIcon::supportsMessages()) {
 		QSystemTrayIcon::MessageIcon icon =
 			QSystemTrayIcon::MessageIcon(n);
-		trayIcon->showMessage("OBS Studio", text, icon, 10000);
+		trayIcon->showMessage(SoftStreamingReconnectionMessage, text, icon, 10000);
 	}
 }
 
@@ -8556,6 +8585,7 @@ void OBSBasic::beginStream()
 	
 	QString pushDomain = courseData.value("pushDomain").toString();
 	QString pushUrl = courseData.value("pushUrl").toString();
+	
 	qDebug() << "aaa:clicked_row:" << clicked_row;
 	qDebug() << "aaa:pushDomain:" << pushDomain;
 	qDebug() << "aaa:pushUrl:" << pushUrl;

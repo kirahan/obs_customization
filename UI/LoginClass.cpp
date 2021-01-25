@@ -19,6 +19,13 @@ LoginClass::LoginClass(QWidget* parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+	//this->showMaximized();
+	this->resize(1920, 1080);
+	this->setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
+	//this->setStyleSheet("background-image:url(:/res/images/login.png)");
+	QWidget* widget =  this->findChild<QWidget*>("widget");
+	
+
 }
 
 LoginClass::~LoginClass()
@@ -26,14 +33,16 @@ LoginClass::~LoginClass()
 
 }
 void LoginClass::on_loginBtn_clicked() {
-
+	qDebug() << "loginbtn clicked";
+	ui.loginBtn->setDisabled(true);
+	ui.loginBtn->setStyleSheet("background-color:grey;color:white");
 	QString loginName = ui.loginLineEdit->text();
 	QString password = ui.pwdLineEdit->text();
 	if (loginName.isEmpty() || password.isEmpty())
 	{
 		QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("账号密码不能为空!"), QMessageBox::Yes);
-		ui.loginLineEdit->clear();
-		ui.pwdLineEdit->clear();
+		ui.loginBtn->setDisabled(false);
+		ui.loginBtn->setStyleSheet("background-color:rgb(86, 106, 223);color:white");
 	}
 	else {
 		QJsonObject json;
@@ -51,7 +60,7 @@ void LoginClass::on_loginBtn_clicked() {
 		request.setHeader(QNetworkRequest::ContentTypeHeader, "application / x - www - form - urlencoded");
 		request.setRawHeader("user-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36");
 		request.setRawHeader("content-type", "application/json");
-		request.setUrl(QUrl("https://ycary.cn:1083/zhiBoApi/v2/login"));
+		request.setUrl(QUrl("https://hbzjsp.com/zhiBoApi/v2/login"));
 
 		manager.post(request, data);
 		connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishRequest(QNetworkReply*)));
@@ -63,6 +72,7 @@ void LoginClass::on_loginBtn_clicked() {
 void LoginClass::finishRequest(QNetworkReply* reply)
 {
 	ui.loginBtn->setDisabled(false);
+	ui.loginBtn->setStyleSheet("background-color:rgb(86, 106, 223);color:white");
 	if (reply->error()) {
 		QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("系统错误!"), QMessageBox::Yes);
 	}
@@ -91,6 +101,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 						qDebug() << "login_succeed";  //输出：QJsonValue(string, "登录成功")
 						QJsonValue data_value = obj.take("data");
 						QJsonObject data_obj = data_value.toObject();
+						qDebug() << data_obj;
 						if (data_obj.contains("token"))
 						{
 							QJsonValue token_value = data_obj.take("token");
@@ -103,6 +114,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 						else {
 							//QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("获取课程列表成功"), QMessageBox::Yes);
 							QJsonArray data_arr = data_value.toArray();
+							qDebug() << data_value;
 							for (int i = 0; i < data_arr.count(); i++)
 							{
 
@@ -113,6 +125,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 								QString beginDate = data_obj.take("beginDate").toString();
 								QString beginTime = data_obj.take("beginTime").toString();
 								QString endTime = data_obj.take("endTime").toString();
+								
 								coursesList.append(QString::fromLocal8Bit("课程："));
 								coursesList.append(curriculumName);
 								coursesList.append("  ");
@@ -192,14 +205,14 @@ void LoginClass::getCourses(QString token) {
 	request.setRawHeader("content-type", "application/json");
 	request.setRawHeader("token", token_bytes);
 
-	request.setUrl(QUrl("https://ycary.cn:1083/zhiBoApi/curriculum/getNotLiveCurriculumList"));
+	request.setUrl(QUrl("https://hbzjsp.com/zhiBoApi/curriculum/getNotLiveCurriculumList"));
 	courses_data.append(byte_array);
 	manager.post(request, courses_data);
 	QTime _Timer = QTime::currentTime().addMSecs(5000);
 
 	while (QTime::currentTime() < _Timer)
 		QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-	connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishGetCourses(QNetworkReply*)));
+	connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishRequest(QNetworkReply*)));
 	//可能是接口太慢，等返回的时候，取数据的时候，数据是空的，过一会才会有数据
 
 }
