@@ -190,8 +190,8 @@ void OBSBasicSettings::SaveStream1Settings()	//保存推流设置的函数
 	//qDebug() << "courseStream:" << json.value("pushDomain").toString();
 	QString pushDomain = courseData.value("pushDomain").toString();
 	QString pushUrl = courseData.value("pushUrl").toString();
-	pushDomain = "rtmp://102388.livepush.myqcloud.com/live/";
-	pushUrl = "rtmp://102388.livepush.myqcloud.com/live/324ad10d93204b048fef4416335d96cf?txSecret=9a2c5c196472a2393895bd3ad1334fa6&txTime=5FEBFB40";
+	//pushDomain = "rtmp://102388.livepush.myqcloud.com/live/";
+	//pushUrl = "rtmp://102388.livepush.myqcloud.com/live/324ad10d93204b048fef4416335d96cf?txSecret=9a2c5c196472a2393895bd3ad1334fa6&txTime=5FEBFB40";
 
 	/*
 		if (!customServer) {

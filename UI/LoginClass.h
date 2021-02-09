@@ -9,6 +9,7 @@ extern QString str;
 extern QJsonArray courseListData;
 extern QJsonArray courseStream;
 extern int clicked_row;
+extern QString token;
 
 class LoginClass : public QDialog
 {
@@ -17,7 +18,7 @@ class LoginClass : public QDialog
 public:
 	LoginClass(QWidget *parent = Q_NULLPTR);
 	~LoginClass();
-	void LoginClass::getCourses(QString token);
+	
 
 private:
 	Ui::LoginClass ui;
@@ -27,6 +28,8 @@ private:
 public slots:
 	void finishRequest(QNetworkReply*);
 	void on_loginBtn_clicked();
+	void getCourses();
+	
 
 signals:
 	void sendCourses(QString data);

@@ -6,21 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>LoginClass</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#LoginClass{background-image:url(:/res/images/login.png);}</string>
+   <string notr="true">#LoginClass{
+border-image:url(:/res/images/login.png);
+background-size: contain;
+}</string>
   </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>1160</x>
-     <y>330</y>
+     <x>830</x>
+     <y>130</y>
      <width>360</width>
      <height>440</height>
     </rect>
