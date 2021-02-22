@@ -36,6 +36,7 @@
 #include <QScreen>
 #include <QProcess>
 #include <QAccessible>
+#include <QDir>
 
 #include "qt-wrappers.hpp"
 #include "obs-app.hpp"
@@ -93,7 +94,7 @@ bool opt_minimize_tray = false;
 bool opt_allow_opengl = false;
 bool opt_always_on_top = false;
 bool opt_disable_high_dpi_scaling = false;
-bool opt_disable_updater = false;
+bool opt_disable_updater = true;
 string opt_starting_collection;
 string opt_starting_profile;
 string opt_starting_scene;
@@ -101,6 +102,16 @@ string opt_starting_scene;
 bool restart = false;
 
 QPointer<OBSLogViewer> obsLogViewer;
+
+/// <summary>
+/// 配置自定义目录
+/// </summary>
+/// <param name="path"></param>
+/// <param name="size"></param>
+/// <param name="name"></param>
+/// <returns></returns>
+int my_os_get_config_path(char* path, size_t size, const char* name);
+char* my_os_get_config_path_ptr(const char* name);
 
 // GPU hint exports for AMD/NVIDIA laptops
 #ifdef _MSC_VER
@@ -1393,6 +1404,7 @@ bool OBSApp::OBSInit()
 	setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
 
 	qRegisterMetaType<VoidFunc>();
+	
 
 #if !defined(_WIN32) && !defined(__APPLE__)
 	obs_set_nix_platform(OBS_NIX_PLATFORM_X11_GLX);
@@ -2229,6 +2241,49 @@ static void load_debug_privilege(void)
 #define OBS_UNIX_STRUCTURE 0
 #endif
 
+// add by kira
+int my_os_get_config_path(char* path, size_t size, const char* name)
+{
+	QString qsPath;
+	QDir dir;
+	qsPath = dir.currentPath();
+	std::string sPath = qsPath.toStdString();
+	strcpy(path, sPath.c_str());
+	if (!name || !*name) {
+		return strlen(path);
+	}
+
+
+	if (strcat_s(path, size, "\\") == 0) {
+		if (strcat_s(path, size, name) == 0) {
+			return (int)strlen(path);
+		}
+	}
+	return 0;
+
+}
+// add by kira
+char* my_os_get_config_path_ptr(const char* name)
+{
+	char* ptr;
+	wchar_t path_utf16[MAX_PATH];
+	struct dstr path;
+
+
+	QString qsPath;
+	QDir dir;
+	qsPath = dir.currentPath();
+	std::string sPath = qsPath.toStdString();
+
+
+	dstr_init_copy(&path, sPath.c_str());
+	dstr_cat(&path, "\\");
+	dstr_cat(&path, name);
+	return path.array;
+}
+
+
+
 int GetConfigPath(char *path, size_t size, const char *name)
 {
 	if (!OBS_UNIX_STRUCTURE && portable_mode) {
@@ -2238,7 +2293,9 @@ int GetConfigPath(char *path, size_t size, const char *name)
 			return snprintf(path, size, CONFIG_PATH);
 		}
 	} else {
-		return os_get_config_path(path, size, name);
+		// 获取全局配置文件目录，主要是
+		//return os_get_config_path(path, size, name);
+		return my_os_get_config_path(path, size, name);
 	}
 }
 
@@ -2253,7 +2310,9 @@ char *GetConfigPathPtr(const char *name)
 			return NULL;
 		}
 	} else {
-		return os_get_config_path_ptr(name);
+		
+		//return os_get_config_path_ptr(name);
+		return my_os_get_config_path_ptr(name);
 	}
 }
 

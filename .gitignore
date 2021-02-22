@@ -6,6 +6,7 @@
 
 #cmake
 /cmbuild/
+/virbuild/
 /build/
 /build32/
 /build64/

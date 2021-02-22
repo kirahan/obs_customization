@@ -98,6 +98,16 @@ struct QCefCookieManager;
 QCef *cef = nullptr;
 QCefCookieManager *panel_cookies = nullptr;
 
+
+string SoftWareTitle = "REXSO直播中控";
+string SoftWareVersion = "-V1.0.0.1";
+string SoftWareOrganizationName = "";
+QString SoftSystemTrayName = "REXSO";
+QString SoftStreamingReconnectionMessage = "REXSO";
+
+
+
+
 void DestroyPanelCookieManager();
 
 namespace {
@@ -1880,11 +1890,12 @@ void OBSBasic::OBSInit()
 		SetAlwaysOnTop(this, true);
 		ui->actionAlwaysOnTop->setChecked(true);
 	} else if (isWayland) {
-		if (opt_always_on_top)
-			blog(LOG_INFO,
-			     "Always On Top not available on Wayland, ignoring…");
-		ui->actionAlwaysOnTop->setEnabled(false);
-		ui->actionAlwaysOnTop->setVisible(false);
+		if (opt_always_on_top){
+			//blog(LOG_INFO,"Always On Top not available on Wayland, ignoring…");
+			ui->actionAlwaysOnTop->setEnabled(false);
+			ui->actionAlwaysOnTop->setVisible(false);
+		}
+			
 	}
 
 #ifndef _WIN32
@@ -1992,6 +2003,7 @@ void OBSBasic::OBSInit()
 				SLOT(OpenMultiviewWindow()));
 
 	ui->sources->UpdateIcons();
+	ui->menuBasic_MainMenu_Help->menuAction()->setVisible(false);//隐藏-帮助
 
 #if !defined(_WIN32)
 	delete ui->actionShowCrashLogs;
@@ -3976,6 +3988,7 @@ static inline enum video_format GetVideoFormatFromName(const char *name)
 
 void OBSBasic::ResetUI()
 {
+	blog(LOG_INFO, "reset ui in");
 	bool studioPortraitLayout = config_get_bool(
 		GetGlobalConfig(), "BasicWindow", "StudioPortraitLayout");
 
@@ -7069,6 +7082,12 @@ void OBSBasic::EnablePreviewDisplay(bool enable)
 	obs_display_set_enabled(ui->preview->GetDisplay(), enable);
 	ui->preview->setVisible(enable);
 	ui->previewDisabledWidget->setVisible(!enable);
+	blog(LOG_INFO, "是否开启预览,不是那个工作室模式的按钮");
+
+	// kira
+	//showFullScreen();
+	
+	
 }
 
 void OBSBasic::TogglePreview()
@@ -7344,17 +7363,11 @@ void OBSBasic::UpdateTitleBar()
 	const char *sceneCollection = config_get_string(
 		App()->GlobalConfig(), "Basic", "SceneCollection");
 
-	name << "OBS ";
-	if (previewProgramMode)
-		name << "Studio ";
-
-	name << App()->GetVersionString();
-	if (App()->IsPortableMode())
-		name << " - Portable Mode";
-
-	name << " - " << Str("TitleBar.Profile") << ": " << profile;
-	name << " - " << Str("TitleBar.Scenes") << ": " << sceneCollection;
-
+	//commit by kira
+	//修改标题栏
+	name << SoftWareTitle;
+	name << SoftWareVersion;
+	name << SoftWareOrganizationName;
 	setWindowTitle(QT_UTF8(name.str().c_str()));
 }
 
@@ -7658,7 +7671,7 @@ void OBSBasic::SystemTrayInit()
 #endif
 	trayIcon.reset(new QSystemTrayIcon(
 		QIcon::fromTheme("obs-tray", trayIconFile), this));
-	trayIcon->setToolTip("OBS Studio");
+	trayIcon->setToolTip(SoftSystemTrayName);
 
 	showHide = new QAction(QTStr("Basic.SystemTray.Show"), trayIcon.data());
 	sysTrayStream = new QAction(QTStr("Basic.Main.StartStreaming"),
@@ -7736,7 +7749,7 @@ void OBSBasic::SysTrayNotify(const QString &text,
 	    QSystemTrayIcon::supportsMessages()) {
 		QSystemTrayIcon::MessageIcon icon =
 			QSystemTrayIcon::MessageIcon(n);
-		trayIcon->showMessage("OBS Studio", text, icon, 10000);
+		trayIcon->showMessage(SoftStreamingReconnectionMessage, text, icon, 10000);
 	}
 }
 

@@ -765,7 +765,6 @@ void OBSBasic::SetCurrentScene(OBSSource scene, bool force)
 void OBSBasic::CreateProgramDisplay()
 {
 	program = new OBSQTDisplay();
-
 	program->setContextMenuPolicy(Qt::CustomContextMenu);
 	connect(program.data(), &QWidget::customContextMenuRequested, this,
 		&OBSBasic::on_program_customContextMenuRequested);
@@ -775,6 +774,7 @@ void OBSBasic::CreateProgramDisplay()
 
 		if (obs_get_video_info(&ovi))
 			ResizeProgram(ovi.base_width, ovi.base_height);
+		//blog(LOG_INFO, "CreateProgramDisplay  in %d,%d", ovi.base_width, ovi.base_height);
 	};
 
 	connect(program.data(), &OBSQTDisplay::DisplayResized, displayResize);
@@ -994,7 +994,15 @@ void OBSBasic::TBarChanged(int value)
 
 void OBSBasic::on_modeSwitch_clicked()
 {
+	//kira
+	
 	SetPreviewProgramMode(!IsPreviewProgramMode());
+	if (IsPreviewProgramMode()) {
+		ResizeProgram(1280, 720);
+	}
+	//ResizeProgram(1280, 720);
+	//showFullScreen();
+	//showNormal();
 }
 
 static inline void ResetQuickTransitionText(QuickTransition *qt)
@@ -1373,10 +1381,8 @@ void OBSBasic::SetPreviewProgramMode(bool enabled)
 		return;
 
 	ui->previewLabel->setHidden(!enabled);
-
 	ui->modeSwitch->setChecked(enabled);
 	os_atomic_set_bool(&previewProgramMode, enabled);
-
 	if (IsPreviewProgramMode()) {
 		if (!previewEnabled)
 			EnablePreviewDisplay(true);
@@ -1444,7 +1450,6 @@ void OBSBasic::SetPreviewProgramMode(bool enabled)
 
 		if (api)
 			api->on_event(OBS_FRONTEND_EVENT_STUDIO_MODE_ENABLED);
-
 		blog(LOG_INFO, "Switched to Preview/Program mode");
 		blog(LOG_INFO, "-----------------------------"
 			       "-------------------");
@@ -1503,6 +1508,7 @@ void OBSBasic::RenderProgram(void *data, uint32_t cx, uint32_t cy)
 
 	window->programCX = int(window->programScale * float(ovi.base_width));
 	window->programCY = int(window->programScale * float(ovi.base_height));
+
 
 	gs_viewport_push();
 	gs_projection_push();
