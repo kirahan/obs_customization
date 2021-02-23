@@ -213,18 +213,19 @@ void assignDockToggle(QDockWidget *dock, QAction *action)
 	dock->connect(action, &QAction::toggled, handleMenuToggle);
 }
 
-extern void RegisterTwitchAuth();
+extern void RegisterTwitchAuth(); 
 extern void RegisterRestreamAuth();
-
+ 
 OBSBasic::OBSBasic(QWidget *parent)
 	: OBSMainWindow(parent), ui(new Ui::OBSBasic)
-{
+{ 
 
 	LoginClass login_dlg;
 	FaceRec face;
 	face.exec();
-	if (login_dlg.exec() == QDialog::Accepted) {
+	if (false) {
 	//if (true) {
+
 		isLogined = true;
 		qRegisterMetaTypeStreamOperators<SignalContainer<OBSScene>>(
 			"SignalContainer<OBSScene>");

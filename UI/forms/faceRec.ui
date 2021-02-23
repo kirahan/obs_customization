@@ -16,20 +16,13 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>10</y>
-     <width>871</width>
-     <height>641</height>
+     <x>90</x>
+     <y>30</y>
+     <width>751</width>
+     <height>591</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="v_layout">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
     <item>
      <layout class="QHBoxLayout" name="h_layout">
       <item>
@@ -57,6 +50,13 @@
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
