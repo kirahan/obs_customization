@@ -62,5 +62,22 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>ExitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>FaceRec</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>748</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>457</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

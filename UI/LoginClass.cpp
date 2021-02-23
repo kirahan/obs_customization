@@ -17,6 +17,9 @@ QString extern_token = "a";
 int clicked_row = 0;
 QString extern_loginName = "a";
 QString extern_password = "a";
+QString idCode = "a";
+QString phone = "a";
+QString tec_name = "a";
 
 LoginClass::LoginClass(QWidget* parent)
 	: QDialog(parent)
@@ -55,7 +58,7 @@ void LoginClass::on_loginBtn_clicked() {
 		json.insert("moduleType", "YUN_ZHI_BO");
 		json.insert("accountType", "LECTURER");
 		QJsonDocument document;
-		document.setObject(json);
+		document.setObject(json); 
 
 		QByteArray byte_array = document.toJson(QJsonDocument::Compact);
 		QByteArray data;
@@ -64,7 +67,7 @@ void LoginClass::on_loginBtn_clicked() {
 		request.setHeader(QNetworkRequest::ContentTypeHeader, "application / x - www - form - urlencoded");
 		request.setRawHeader("user-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36");
 		request.setRawHeader("content-type", "application/json");
-		request.setUrl(QUrl("https://hbzjsp.com/zhiBoApi/v2/login"));
+		request.setUrl(QUrl("https://ycary.cn:1083/zhiBoApi/v2/login"));
 
 		manager.post(request, data);
 		connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishRequest(QNetworkReply*)));
@@ -100,7 +103,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 					QString code_value_string = code_value.toString();
 					if (code_value_string == "200")
 					{
-
+ 
 						accept();//登录成功，跳转到主页面
 						//QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("登录成功"), QMessageBox::Yes);
 						qDebug() << "login_succeed";  //输出：QJsonValue(string, "登录成功")
@@ -109,10 +112,14 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 						qDebug() << data_obj;
 						if (data_obj.contains("token"))
 						{
-							QJsonValue token_value = data_obj.take("token");
-							QString token = token_value.toString();
-							if (token != "") {
-								getCourses(token);
+							extern_token = data_obj.take("token").toString();
+							idCode = data_obj.take("idCode").toString();
+							phone = data_obj.take("phoneNumber").toString();
+							tec_name = data_obj.take("name").toString();
+
+							qDebug() << "aab:tec_name:"<<tec_name;
+							if (extern_token != "") {
+								getCourses(extern_token);
 							}
 
 						}
@@ -211,7 +218,7 @@ void LoginClass::getCourses(QString token) {
 	request.setRawHeader("content-type", "application/json");
 	request.setRawHeader("token", token_bytes);
 
-	request.setUrl(QUrl("https://hbzjsp.com/zhiBoApi/curriculum/getNotLiveCurriculumList"));
+	request.setUrl(QUrl("https://ycary.cn:1083/zhiBoApi/curriculum/getNotLiveCurriculumList"));
 	courses_data.append(byte_array);
 	manager.post(request, courses_data);
 	QTime _Timer = QTime::currentTime().addMSecs(1000);

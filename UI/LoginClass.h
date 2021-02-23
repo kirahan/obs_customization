@@ -12,6 +12,9 @@ extern int clicked_row;
 extern QString extern_token;
 extern QString extern_loginName;
 extern QString extern_password;
+extern QString idCode;
+extern QString phone;
+extern QString tec_name;
 
 class LoginClass : public QDialog
 {

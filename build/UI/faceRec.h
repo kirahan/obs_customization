@@ -11,6 +11,10 @@
 #include <QDebug>
 #include <QImage>
 #include <qdialog.h>
+#include <QtNetwork/qnetworkaccessmanager.h>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkReply>
 
 namespace Ui {
     class FaceRec;
@@ -29,14 +33,19 @@ class FaceRec : public QDialog
         void SavePicture();
         void displayImage(int, QImage image);
 	void on_cameraType_activated(int index);
+	void finishRequest(QNetworkReply*);
 
     private:
         Ui::FaceRec *ui;
 	QList<QCameraInfo> cameras;
+	QNetworkAccessManager manager;   
+	QNetworkRequest request;    
+
     public:
         QCamera *camera;//摄像头
         QCameraViewfinder* viewfinder;//摄像头取景器部件
         QCameraImageCapture *imageCapture;//截图部件
+	void recognise();
 
 };
 

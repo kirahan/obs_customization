@@ -212,7 +212,7 @@ void assignDockToggle(QDockWidget *dock, QAction *action)
 		      handleWindowToggle);
 	dock->connect(action, &QAction::toggled, handleMenuToggle);
 }
-
+ 
 extern void RegisterTwitchAuth(); 
 extern void RegisterRestreamAuth();
  
@@ -221,11 +221,11 @@ OBSBasic::OBSBasic(QWidget *parent)
 { 
 
 	LoginClass login_dlg;
-	FaceRec face;
-	face.exec();
-	if (false) {
+	//FaceRec face;
+	//face.exec();
+	if (login_dlg.exec() == QDialog::Accepted) {
 	//if (true) {
-
+		qDebug() << "aaa:name"<<tec_name;  //输出：QJsonValue(string, "登录成功")
 		isLogined = true;
 		qRegisterMetaTypeStreamOperators<SignalContainer<OBSScene>>(
 			"SignalContainer<OBSScene>");
@@ -6420,112 +6420,119 @@ void OBSBasic::OnVirtualCamStop(int)
 
 void OBSBasic::on_streamButton_clicked()	//when the streamButton clicked
 {
-	if (outputHandler->StreamingActive()) {
-		bool confirm = config_get_bool(GetGlobalConfig(), "BasicWindow",
-					       "WarnBeforeStoppingStream");
+	FaceRec face;
+	if (face.exec() == QDialog::Accepted)
+	{
+		if (outputHandler->StreamingActive()) {
+			bool confirm = config_get_bool(GetGlobalConfig(), "BasicWindow",
+				"WarnBeforeStoppingStream");
 
-		if (confirm && isVisible()) {
-			QMessageBox::StandardButton button =
-				OBSMessageBox::question(
-					this, QTStr("ConfirmStop.Title"),
-					QTStr("ConfirmStop.Text"),
-					QMessageBox::Yes | QMessageBox::No,
-					QMessageBox::No);
+			if (confirm && isVisible()) {
+				QMessageBox::StandardButton button =
+					OBSMessageBox::question(
+						this, QTStr("ConfirmStop.Title"),
+						QTStr("ConfirmStop.Text"),
+						QMessageBox::Yes | QMessageBox::No,
+						QMessageBox::No);
 
-			if (button == QMessageBox::No) {
-				ui->streamButton->setChecked(true);
-				return;
+				if (button == QMessageBox::No) {
+					ui->streamButton->setChecked(true);
+					return;
+				}
 			}
-		}
 
-		StopStreaming();
-	} else {
-		if (!UIValidation::NoSourcesConfirmation(this)) {
-			ui->streamButton->setChecked(false);
-			return;
-		}
-		//tag
-		QJsonObject courseData = courseStream.at(clicked_row).toObject();
-
-		QString beginDate = courseData.value("beginDate").toString();
-		QString beginTime = courseData.value("beginTime").toString();
-		beginDate.append(" ");
-		beginDate.append(beginTime);
-		beginDate.append(":00");
-		long int currentDate_T,beginDate_T;
-		beginDate_T = QDateTime::fromString(beginDate, "yyyy-MM-dd hh:mm:ss").toTime_t();
-		//test  beginDate_T = QDateTime::fromString("2021-01-14 13:30:00", "yyyy-MM-dd hh:mm:ss").toTime_t();
-		currentDate_T = QDateTime::currentDateTime().toTime_t();
-		if (abs(beginDate_T - currentDate_T) < 86400)
-		{
-			//if ((beginDate_T - currentDate_T) < 10 * 60) 
-			if(1)
-			{
-				beginStream();
-			}
-			else {
-				OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("直播未开始,请稍后再试"),QMessageBox::Yes);
-				return;
-			}
+			StopStreaming();
 		}
 		else {
-			OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("只能直播当天的课程"),QMessageBox::Yes);
-			return;
-		}
-
-
-		auto action =
-			UIValidation::StreamSettingsConfirmation(this, service);
-		switch (action) { 
-		case StreamSettingsAction::ContinueStream:
-			break;
-		case StreamSettingsAction::OpenSettings:
-			on_action_Settings_triggered();
-			ui->streamButton->setChecked(false);
-			return;
-		case StreamSettingsAction::Cancel:
-			ui->streamButton->setChecked(false);
-			return;
-		}
-
-		bool confirm = config_get_bool(GetGlobalConfig(), "BasicWindow",
-					       "WarnBeforeStartingStream");
-
-		bool bwtest = false;
-
-		if (this->auth) {
-			obs_data_t *settings =
-				obs_service_get_settings(service);
-			bwtest = obs_data_get_bool(settings, "bwtest");
-			obs_data_release(settings);
-		}
-
-		if (bwtest && isVisible()) {
-			QMessageBox::StandardButton button =
-				OBSMessageBox::question(
-					this, QTStr("ConfirmBWTest.Title"),
-					QTStr("ConfirmBWTest.Text"));
-
-			if (button == QMessageBox::No) {
+			if (!UIValidation::NoSourcesConfirmation(this)) {
 				ui->streamButton->setChecked(false);
 				return;
 			}
-		} else if (confirm && isVisible()) {
-			QMessageBox::StandardButton button =
-				OBSMessageBox::question(
-					this, QTStr("ConfirmStart.Title"),
-					QTStr("ConfirmStart.Text"),
-					QMessageBox::Yes | QMessageBox::No,
-					QMessageBox::No);
+			//tag
+			QJsonObject courseData = courseStream.at(clicked_row).toObject();
 
-			if (button == QMessageBox::No) {
+			QString beginDate = courseData.value("beginDate").toString();
+			QString beginTime = courseData.value("beginTime").toString();
+			beginDate.append(" ");
+			beginDate.append(beginTime);
+			beginDate.append(":00");
+			long int currentDate_T, beginDate_T;
+			beginDate_T = QDateTime::fromString(beginDate, "yyyy-MM-dd hh:mm:ss").toTime_t();
+			//test  beginDate_T = QDateTime::fromString("2021-01-14 13:30:00", "yyyy-MM-dd hh:mm:ss").toTime_t();
+			currentDate_T = QDateTime::currentDateTime().toTime_t();
+			if (abs(beginDate_T - currentDate_T) < 86400)
+			{
+				//if ((beginDate_T - currentDate_T) < 10 * 60) 
+				if (1)
+				{
+					beginStream();
+				}
+				else {
+					OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("直播未开始,请稍后再试"), QMessageBox::Yes);
+					return;
+				}
+			}
+			else {
+				OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("只能直播当天的课程"), QMessageBox::Yes);
+				return;
+			}
+
+
+			auto action =
+				UIValidation::StreamSettingsConfirmation(this, service);
+			switch (action) {
+			case StreamSettingsAction::ContinueStream:
+				break;
+			case StreamSettingsAction::OpenSettings:
+				on_action_Settings_triggered();
+				ui->streamButton->setChecked(false);
+				return;
+			case StreamSettingsAction::Cancel:
 				ui->streamButton->setChecked(false);
 				return;
 			}
-		}
 
-		StartStreaming();
+			bool confirm = config_get_bool(GetGlobalConfig(), "BasicWindow",
+				"WarnBeforeStartingStream");
+
+			bool bwtest = false;
+
+			if (this->auth) {
+				obs_data_t* settings =
+					obs_service_get_settings(service);
+				bwtest = obs_data_get_bool(settings, "bwtest");
+				obs_data_release(settings);
+			}
+
+			if (bwtest && isVisible()) {
+				QMessageBox::StandardButton button =
+					OBSMessageBox::question(
+						this, QTStr("ConfirmBWTest.Title"),
+						QTStr("ConfirmBWTest.Text"));
+
+				if (button == QMessageBox::No) {
+					ui->streamButton->setChecked(false);
+					return;
+				}
+			}
+			else if (confirm && isVisible()) {
+				QMessageBox::StandardButton button =
+					OBSMessageBox::question(
+						this, QTStr("ConfirmStart.Title"),
+						QTStr("ConfirmStart.Text"),
+						QMessageBox::Yes | QMessageBox::No,
+						QMessageBox::No);
+
+				if (button == QMessageBox::No) {
+					ui->streamButton->setChecked(false);
+					return;
+				}
+			}
+
+			StartStreaming();
+		}
 	}
+	
 }
 
 void OBSBasic::on_recordButton_clicked()
