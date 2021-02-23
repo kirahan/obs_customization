@@ -44,6 +44,8 @@
 
 #include <QPointer>
 
+
+
 class QMessageBox;
 class QListWidgetItem;
 class VolControl;
@@ -738,7 +740,10 @@ private:
 	bool LowDiskSpace();
 	void DiskSpaceMessage();
 
+	
+	QTimer* courseTimer = new QTimer(this);
 	OBSSource prevFTBSource = nullptr;
+	bool courseClose = false;
 
 public:
 	OBSSource GetProgramSource();
@@ -844,6 +849,7 @@ public:
 	QIcon GetSceneIcon() const;
 
 	OBSWeakSource copyFilter = nullptr;
+	void mainGetCourses(QString token);
 
 protected:
 	virtual void closeEvent(QCloseEvent *event) override;
@@ -1017,6 +1023,7 @@ private slots:
 	void StackedMixerAreaContextMenuRequested();
 
 	void ResizeOutputSizeOfSource();
+	void TimingGetCourse();
 
 public slots:
 	void on_actionResetTransform_triggered();

@@ -257,6 +257,8 @@ set(obs_SOURCES
 	visibility-checkbox.cpp
 	media-slider.cpp
 	LoginClass.cpp
+	getCourses.cpp
+	faceRec.cpp
 	)
 
 set(obs_HEADERS
@@ -329,6 +331,8 @@ set(obs_HEADERS
 	obs-proxy-style.hpp
 	media-slider.hpp
 	LoginClass.h
+	getCourses.h
+	faceRec.h
 	)
 
 set(obs_importers_HEADERS
@@ -370,6 +374,7 @@ set(obs_UI
 	forms/OBSImporter.ui
 	forms/OBSAbout.ui
 	forms/LoginClass.ui
+	forms/faceRec.ui
 	)
 
 set(obs_QRC
@@ -400,6 +405,8 @@ if(WIN32)
 endif()
 
 find_package(Qt5Network REQUIRED)
+find_package(Qt5Multimedia ${FIND_MODE})
+find_package(Qt5MultimediaWidgets ${FIND_MODE})
 
 target_link_libraries(obs
 	libobs
@@ -407,6 +414,8 @@ target_link_libraries(obs
 	Qt5::Svg
 	Qt5::Xml
 	Qt5::Network
+	Qt5::Multimedia
+	Qt5::MultimediaWidgets
 	obs-frontend-api
 	${FFMPEG_LIBRARIES}
 	${LIBCURL_LIBRARIES}

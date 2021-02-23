@@ -13,7 +13,10 @@
 QString str = "aaa";
 QJsonArray courseListData = { "abc" };
 QJsonArray courseStream = { "abc" };
-int clicked_row = 1;
+QString extern_token = "a";
+int clicked_row = 0;
+QString extern_loginName = "a";
+QString extern_password = "a";
 
 LoginClass::LoginClass(QWidget* parent)
 	: QDialog(parent)
@@ -25,7 +28,6 @@ LoginClass::LoginClass(QWidget* parent)
 	//this->setStyleSheet("background-image:url(:/res/images/login.png)");
 	QWidget* widget =  this->findChild<QWidget*>("widget");
 	
-
 }
 
 LoginClass::~LoginClass()
@@ -38,6 +40,8 @@ void LoginClass::on_loginBtn_clicked() {
 	ui.loginBtn->setStyleSheet("background-color:grey;color:white");
 	QString loginName = ui.loginLineEdit->text();
 	QString password = ui.pwdLineEdit->text();
+	extern_loginName = loginName;
+	extern_password = password;
 	if (loginName.isEmpty() || password.isEmpty())
 	{
 		QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("账号密码不能为空!"), QMessageBox::Yes);
@@ -79,6 +83,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 	else {
 
 		QByteArray byte_array = reply->readAll();  //Json ducument
+		qDebug() << "aaa:byte_array"<<byte_array;  //输出：QJsonValue(string, "登录成功")
 		QJsonParseError json_error;
 		QJsonDocument parse_document = QJsonDocument::fromJson(byte_array, &json_error);
 
@@ -114,7 +119,10 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 						else {
 							//QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("获取课程列表成功"), QMessageBox::Yes);
 							QJsonArray data_arr = data_value.toArray();
-							qDebug() << data_value;
+							while (!courseListData.isEmpty())
+							{
+								courseListData.removeFirst();
+							}
 							for (int i = 0; i < data_arr.count(); i++)
 							{
 
@@ -162,8 +170,6 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 									coursesList.append(QString::fromLocal8Bit("未开始"));
 								}
 								courseListData.append(coursesList);
-								
-
 							}
 							
 						}
@@ -187,14 +193,14 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 }
 
 void LoginClass::getCourses(QString token) {
-	qDebug() << "token:" << token;
-	QByteArray token_bytes = token.toLocal8Bit();
 	
+	QByteArray token_bytes = token.toLocal8Bit();
+	 
 	QJsonObject date_json;
 
 	QString currentDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
-	qDebug() << "aaa:currentDate_login"<<currentDate;  //输出：QJsonValue(string, "登录成功")
-	date_json.insert("beginDate", "2020-12-30");
+	//date_json.insert("beginDate", "2021-01-25");
+	date_json.insert("beginDate",currentDate);
 	QJsonDocument courses_document;
 	courses_document.setObject(date_json);
 
@@ -208,8 +214,7 @@ void LoginClass::getCourses(QString token) {
 	request.setUrl(QUrl("https://hbzjsp.com/zhiBoApi/curriculum/getNotLiveCurriculumList"));
 	courses_data.append(byte_array);
 	manager.post(request, courses_data);
-	QTime _Timer = QTime::currentTime().addMSecs(5000);
-
+	QTime _Timer = QTime::currentTime().addMSecs(1000);
 	while (QTime::currentTime() < _Timer)
 		QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 	connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishRequest(QNetworkReply*)));

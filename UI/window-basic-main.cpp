@@ -66,6 +66,9 @@
 #include <fstream>
 #include <sstream>
 #include <QString>
+#include <Qtimer>
+#include <QJsonDocument>
+#include <getCourses.h>
 
 #ifdef _WIN32
 #include "win-update/win-update.hpp"
@@ -84,6 +87,8 @@
 #include <json11.hpp>
 
 #include <LoginClass.h>
+#include <faceRec.h>
+
 
 using namespace json11;
 using namespace std;
@@ -216,6 +221,8 @@ OBSBasic::OBSBasic(QWidget *parent)
 {
 
 	LoginClass login_dlg;
+	FaceRec face;
+	face.exec();
 	if (login_dlg.exec() == QDialog::Accepted) {
 	//if (true) {
 		isLogined = true;
@@ -291,7 +298,7 @@ OBSBasic::OBSBasic(QWidget *parent)
                            "QListWidget::Item{background:#656A6E; }"
                            "QListWidget::Item:selected{background:#19334B;color:#FFFFFF; }"
                         );
-		for (int i = 1; i < courseListData.count(); i++)
+		for (int i = 0; i < courseListData.count(); i++)
 		{
 			ui->courseList->setWordWrap(true);
 			QListWidgetItem* item = new QListWidgetItem;
@@ -299,10 +306,14 @@ OBSBasic::OBSBasic(QWidget *parent)
 			item->setText(courseListData[i].toString()); //设置列表项的文本
 			ui->courseList->setSpacing(2);
 			ui->courseList->addItem(item);
-		}
+		}  
 
 
 		connect(ui->courseList, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(courseListClicked(QListWidgetItem*)));
+		
+		connect(courseTimer, SIGNAL(timeout()), this, SLOT(TimingGetCourse()));
+		courseTimer->start(1000); // 每隔1s 
+		courseClose = false;
 
 
 		bool sceneGrid = config_get_bool(App()->GlobalConfig(),
@@ -4297,6 +4308,8 @@ void OBSBasic::closeEvent(QCloseEvent *event)
 	/* Do not close window if inside of a temporary event loop because we
 	 * could be inside of an Auth::LoadUI call.  Keep trying once per
 	 * second until we've exit any known sub-loops. */
+	qDebug() << "eee:close";  //输出：QJsonValue(string, "登录成功")
+	courseClose = true;
 	if (os_atomic_load_long(&insideEventLoop) != 0) {
 		QTimer::singleShot(1000, this, SLOT(close()));
 		event->ignore();
@@ -6444,24 +6457,25 @@ void OBSBasic::on_streamButton_clicked()	//when the streamButton clicked
 		currentDate_T = QDateTime::currentDateTime().toTime_t();
 		if (abs(beginDate_T - currentDate_T) < 86400)
 		{
-			if ((beginDate_T - currentDate_T) < 10 * 60)
+			//if ((beginDate_T - currentDate_T) < 10 * 60) 
+			if(1)
 			{
 				beginStream();
 			}
 			else {
-				OBSMessageBox::warning(this, "提示","直播未开始,请稍后再试",QMessageBox::Yes);
+				OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("直播未开始,请稍后再试"),QMessageBox::Yes);
 				return;
 			}
 		}
 		else {
-			OBSMessageBox::warning(this,"提示", "只能直播当天的课程",QMessageBox::Yes);
+			OBSMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("只能直播当天的课程"),QMessageBox::Yes);
 			return;
 		}
 
 
 		auto action =
 			UIValidation::StreamSettingsConfirmation(this, service);
-		switch (action) {
+		switch (action) { 
 		case StreamSettingsAction::ContinueStream:
 			break;
 		case StreamSettingsAction::OpenSettings:
@@ -8572,8 +8586,8 @@ void OBSBasic::on_sourceFiltersButton_clicked()
 
 void OBSBasic::courseListClicked(QListWidgetItem*)
 {
-	clicked_row = ui->courseList->currentRow() + 1;	//第一项是初始值，第二项才是传回的数据
-
+	clicked_row = ui->courseList->currentRow();	
+	qDebug() <<"aaa:clicked_row" << clicked_row;
 
 }
 
@@ -8582,14 +8596,37 @@ void OBSBasic::beginStream()
 	
 	OBSBasicSettings settings(this);
 	QJsonObject courseData = courseStream.at(clicked_row).toObject();
-	
 	QString pushDomain = courseData.value("pushDomain").toString();
 	QString pushUrl = courseData.value("pushUrl").toString();
-	
-	qDebug() << "aaa:clicked_row:" << clicked_row;
-	qDebug() << "aaa:pushDomain:" << pushDomain;
-	qDebug() << "aaa:pushUrl:" << pushUrl;
 	settings.saveCourseStream();
 
 	
+}
+
+/*定时获取最新的课程列表*/
+void OBSBasic::TimingGetCourse()
+{
+	GetCourses courses;
+	courses.login();
+	qDebug() << "aaa";
+	for (int i = 0; i < courseListData.count(); i++)
+	{
+		if (!courseClose)
+		{
+			ui->courseList->takeItem(0);
+		}
+	
+	} 
+	for(int i = 0; i < courseListData.count(); i++)
+	{
+		if (!courseClose)
+		{
+			ui->courseList->setWordWrap(true);
+			QListWidgetItem* item = new QListWidgetItem;
+			item->setText(courseListData[i].toString());
+			ui->courseList->setSpacing(2);
+			ui->courseList->addItem(item);
+
+		}
+	}
 }

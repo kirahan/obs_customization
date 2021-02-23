@@ -9,6 +9,9 @@ extern QString str;
 extern QJsonArray courseListData;
 extern QJsonArray courseStream;
 extern int clicked_row;
+extern QString extern_token;
+extern QString extern_loginName;
+extern QString extern_password;
 
 class LoginClass : public QDialog
 {
