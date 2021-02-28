@@ -1,9 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/Modules/FindLibrnnoise.cmake
-C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/Modules/FindLibspeexdsp.cmake
-C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/winrc/obs-module.rc.in
-C:/CubeNodeLTD/obs/2.25/obs-studio/plugins/obs-filters/CMakeLists.txt
-C:/CubeNodeLTD/obs/2.25/obs-studio/plugins/obs-filters/obs-filters-config.h.in
-C:/Program Files/CMake/share/cmake-3.18/Modules/FindPackageHandleStandardArgs.cmake
-C:/Program Files/CMake/share/cmake-3.18/Modules/FindPackageMessage.cmake
-C:/Program Files/CMake/share/cmake-3.18/Modules/FindPkgConfig.cmake
