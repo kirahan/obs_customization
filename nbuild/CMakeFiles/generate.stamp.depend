@@ -1,0 +1,67 @@
+# CMake generation dependency list for this directory.
+C:/CubeNodeLTD/obs/2.25/obs-studio/CMakeLists.txt
+C:/CubeNodeLTD/obs/2.25/obs-studio/UI/obs.rc.in
+C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/ALL_BUILD.vcxproj.user.in
+C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/Modules/CopyMSVCBins.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/Modules/ObsCpack.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/Modules/ObsHelpers.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/3.18.4/CMakeCCompiler.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/3.18.4/CMakeCXXCompiler.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/3.18.4/CMakeRCCompiler.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/3.18.4/CMakeSystem.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeParseArguments.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CPack.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CPackComponent.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckCXXCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.18/Templates/CPackConfig.cmake.in
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake
+C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake

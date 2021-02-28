@@ -1,0 +1,257 @@
+{
+	"BUILD_DIR" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/frontend-tools_autogen",
+	"CMAKE_BINARY_DIR" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools",
+	"CMAKE_EXECUTABLE" : "C:/Program Files/CMake/bin/cmake.exe",
+	"CMAKE_LIST_FILES" : 
+	[
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/CMakeLists.txt",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/frontend-tools-config.h.in",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/winrc/obs-module.rc.in"
+	],
+	"CMAKE_SOURCE_DIR" : "C:/CubeNodeLTD/obs/2.25/obs-studio",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/combobox-ignorewheel.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_combobox-ignorewheel.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/double-slider.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_double-slider.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/auto-scene-switcher.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_auto-scene-switcher.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions-handler.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_captions-handler.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions-mssapi-stream.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_captions-mssapi-stream.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions-mssapi.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_captions-mssapi.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_captions.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/output-timer.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_output-timer.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/scripts.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_scripts.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/tool-helpers.hpp",
+			"Mu",
+			"EWIEGA46WW/moc_tool-helpers.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/horizontal-scroll-area.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_horizontal-scroll-area.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/properties-view.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_properties-view.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/properties-view.moc.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_properties-view.moc.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/qt-wrappers.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_qt-wrappers.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/slider-ignorewheel.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_slider-ignorewheel.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/spinbox-ignorewheel.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_spinbox-ignorewheel.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/vertical-scroll-area.hpp",
+			"Mu",
+			"NKRGQWJHU2/moc_vertical-scroll-area.cpp"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/config/frontend-tools-config.h",
+			"Mu",
+			"DDW5XZP6GJ/moc_frontend-tools-config.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/frontend-tools_autogen/include",
+	"INCLUDE_DIR_Debug" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/frontend-tools_autogen/include_Debug",
+	"INCLUDE_DIR_MinSizeRel" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/frontend-tools_autogen/include_MinSizeRel",
+	"INCLUDE_DIR_RelWithDebInfo" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/frontend-tools_autogen/include_RelWithDebInfo",
+	"INCLUDE_DIR_Release" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/frontend-tools_autogen/include_Release",
+	"MOC_COMPILATION_FILE" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/frontend-tools_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"HAVE_OBSCONFIG_H",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
+		"QT_WIDGETS_LIB",
+		"UNICODE",
+		"WIN32",
+		"_CRT_NONSTDC_NO_WARNINGS",
+		"_CRT_SECURE_NO_WARNINGS",
+		"_UNICODE",
+		"frontend_tools_EXPORTS"
+	],
+	"MOC_DEFINITIONS_Debug" : 
+	[
+		"HAVE_OBSCONFIG_H",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_WIDGETS_LIB",
+		"UNICODE",
+		"WIN32",
+		"_CRT_NONSTDC_NO_WARNINGS",
+		"_CRT_SECURE_NO_WARNINGS",
+		"_UNICODE",
+		"frontend_tools_EXPORTS"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools",
+		"C:/CubeNodeLTD/obs/dependencies2019/win64/include",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/deps/blake2/src",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/config",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/deps/w32-pthreads",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/obs-frontend-api",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/libobs",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/deps/libff",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/deps/json11",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/deps/obs-scripting",
+		"C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include",
+		"C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtWidgets",
+		"C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtGui",
+		"C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtANGLE",
+		"C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/include/QtCore",
+		"C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/mkspecs/win32-msvc"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : [],
+	"MOC_PREDEFS_FILE" : "",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/ui_auto-scene-switcher.h",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/ui_captions.h",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/ui_output-timer.h",
+		"C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/ui_scripts.h"
+	],
+	"MULTI_CONFIG" : true,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE_Debug" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/ParseCache_Debug.txt",
+	"PARSE_CACHE_FILE_MinSizeRel" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/ParseCache_MinSizeRel.txt",
+	"PARSE_CACHE_FILE_RelWithDebInfo" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/ParseCache_RelWithDebInfo.txt",
+	"PARSE_CACHE_FILE_Release" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/ParseCache_Release.txt",
+	"QT_MOC_EXECUTABLE" : "C:/Qt/Qt5.14.2/5.14.2/msvc2017_64/bin/moc.exe",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 14,
+	"SETTINGS_FILE" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE_Debug" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/AutogenUsed_Debug.txt",
+	"SETTINGS_FILE_MinSizeRel" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/AutogenUsed_MinSizeRel.txt",
+	"SETTINGS_FILE_RelWithDebInfo" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
+	"SETTINGS_FILE_Release" : "C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_autogen.dir/AutogenUsed_Release.txt",
+	"SOURCES" : 
+	[
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/combobox-ignorewheel.cpp",
+			"Mu"
+		],
+		[ "C:/CubeNodeLTD/obs/2.25/obs-studio/UI/double-slider.cpp", "Mu" ],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/auto-scene-switcher-win.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/auto-scene-switcher.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions-handler.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions-mssapi-stream.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions-mssapi.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/captions.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/frontend-tools.c",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/output-timer.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/frontend-plugins/frontend-tools/scripts.cpp",
+			"Mu"
+		],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/horizontal-scroll-area.cpp",
+			"Mu"
+		],
+		[ "C:/CubeNodeLTD/obs/2.25/obs-studio/UI/properties-view.cpp", "Mu" ],
+		[ "C:/CubeNodeLTD/obs/2.25/obs-studio/UI/qt-wrappers.cpp", "Mu" ],
+		[ "C:/CubeNodeLTD/obs/2.25/obs-studio/UI/slider-ignorewheel.cpp", "Mu" ],
+		[ "C:/CubeNodeLTD/obs/2.25/obs-studio/UI/spinbox-ignorewheel.cpp", "Mu" ],
+		[
+			"C:/CubeNodeLTD/obs/2.25/obs-studio/UI/vertical-scroll-area.cpp",
+			"Mu"
+		]
+	],
+	"VERBOSITY" : 0
+}

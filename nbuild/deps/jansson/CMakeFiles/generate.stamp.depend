@@ -1,0 +1,46 @@
+# CMake generation dependency list for this directory.
+C:/CubeNodeLTD/obs/2.25/obs-studio/deps/jansson/CMakeLists.txt
+C:/CubeNodeLTD/obs/2.25/obs-studio/deps/jansson/cmake/CheckFunctionKeywords.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/deps/jansson/cmake/JanssonConfig.cmake.in
+C:/CubeNodeLTD/obs/2.25/obs-studio/deps/jansson/cmake/JanssonConfigVersion.cmake.in
+C:/CubeNodeLTD/obs/2.25/obs-studio/deps/jansson/cmake/jansson_config.h.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/deps/jansson/cmake/jansson_private_config.h.cmake
+C:/CubeNodeLTD/obs/2.25/obs-studio/deps/jansson/jansson.pc.in
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_ENDIAN_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_FCNTL_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_LOCALE_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_SCHED_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_STDINT_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_SYS_PARAM_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_SYS_STAT_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_SYS_TIME_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_SYS_TYPES_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckIncludeFiles/HAVE_UNISTD_H.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/INT.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/INT32_T.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/INT64_T.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/LONG_INT.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/LONG_LONG_INT.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/SSIZE_T.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/UINT16_T.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/UINT32_T.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/UINT8_T.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/UNSIGNED_INT.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/UNSIGNED_LONG_INT.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/UNSIGNED_SHORT.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/UPPERCASE_SSIZE_T.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/__INT32.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/__INT64.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/__UINT16.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/__UINT32.c
+C:/CubeNodeLTD/obs/2.25/obs-studio/nbuild/CMakeFiles/CheckTypeSize/__UINT8.c
+C:/Program Files/CMake/share/cmake-3.18/Modules/CMakeConfigurableFile.in
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckFunctionExists.c
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckTypeSize.c.in
+C:/Program Files/CMake/share/cmake-3.18/Modules/CheckTypeSize.cmake

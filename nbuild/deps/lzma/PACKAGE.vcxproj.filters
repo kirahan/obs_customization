@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\CubeNodeLTD\obs\2.25\obs-studio\nbuild\CMakeFiles\f6ed049886e6ba2b33e06d25f1ac0d99\PACKAGE_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{0E394E05-3654-3D97-99F9-647F6B9D1082}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

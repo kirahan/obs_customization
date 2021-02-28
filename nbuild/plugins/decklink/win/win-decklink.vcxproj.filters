@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\plugin-main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-devices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\DecklinkOutput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\DecklinkInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\DecklinkBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device-instance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device-discovery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device-mode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\audio-repack.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\win\platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\OBSVideoFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\nbuild\plugins\decklink\win\DeckLinkAPI_i.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-devices.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\DecklinkOutput.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\platform.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\DecklinkInput.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\DecklinkBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device-instance.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device-discovery.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\decklink-device-mode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\audio-repack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\audio-repack.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\util.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\OBSVideoFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\win\decklink-sdk\DeckLinkAPIVersion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\nbuild\plugins\decklink\win\DeckLinkAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\CubeNodeLTD\obs\2.25\obs-studio\nbuild\CMakeFiles\5306fa5d0f807336f60244cd12934b63\DeckLinkAPI.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\decklink\win\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\nbuild\plugins\decklink\win\win-decklink.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{0E394E05-3654-3D97-99F9-647F6B9D1082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2BDE9F04-40FC-327F-B22E-E6189C5400E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A096C864-D932-3AEE-BAF3-9829F2DF1CD3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

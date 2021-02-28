@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>916</width>
-    <height>674</height>
+    <width>430</width>
+    <height>498</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,49 +16,86 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>30</y>
-     <width>751</width>
-     <height>591</height>
+     <x>10</x>
+     <y>70</y>
+     <width>411</width>
+     <height>301</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="v_layout">
     <item>
-     <layout class="QHBoxLayout" name="h_layout">
-      <item>
-       <widget class="QPushButton" name="saveButton">
-        <property name="text">
-         <string>保存</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="cameraType"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>截图</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="ExitButton">
-        <property name="text">
-         <string>退出</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>10</y>
+     <width>181</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(48, 132, 235);
+font: 75 28pt 等线;</string>
+   </property>
+   <property name="text">
+    <string>实名认证</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExitButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>460</y>
+     <width>409</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font:12pt;</string>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>420</y>
+     <width>409</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font:12pt;</string>
+   </property>
+   <property name="text">
+    <string>认证</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cameraType">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>380</y>
+     <width>409</width>
+     <height>32</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

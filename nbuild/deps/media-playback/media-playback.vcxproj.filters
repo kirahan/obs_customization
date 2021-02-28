@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\deps\media-playback\media-playback\decode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\deps\media-playback\media-playback\media.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\deps\media-playback\media-playback\closest-format.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\deps\media-playback\media-playback\decode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\deps\media-playback\media-playback\media.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\CubeNodeLTD\obs\2.25\obs-studio\deps\media-playback\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2BDE9F04-40FC-327F-B22E-E6189C5400E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A096C864-D932-3AEE-BAF3-9829F2DF1CD3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

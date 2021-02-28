@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\graphics-hook.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\funchook.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\obfuscate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\gl-capture.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\d3d8-capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\d3d9-capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\dxgi-capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\d3d10-capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\d3d11-capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\d3d12-capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\vulkan-capture.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\nbuild\plugins\win-capture\graphics-hook\config\graphics-hook-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\graphics-hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook-ver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook-info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\hook-helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\funchook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\obfuscate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\gl-decs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\d3d9-patches.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\vulkan-capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\CubeNodeLTD\obs\2.25\obs-studio\plugins\win-capture\graphics-hook\graphics-hook.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2BDE9F04-40FC-327F-B22E-E6189C5400E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A096C864-D932-3AEE-BAF3-9829F2DF1CD3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

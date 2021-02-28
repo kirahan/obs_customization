@@ -10,10 +10,12 @@
 #include <QDebug>
 #include <iostream>
 #include "window-basic-main.hpp"
+#include <faceRec.h>
 QString str = "aaa";
 QJsonArray courseListData = { "abc" };
 QJsonArray courseStream = { "abc" };
 QString extern_token = "a";
+QString extern_certificationstate = '0';
 int clicked_row = 0;
 QString extern_loginName = "a";
 QString extern_password = "a";
@@ -104,7 +106,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 					if (code_value_string == "200")
 					{
  
-						accept();//登录成功，跳转到主页面
+						//accept();//登录成功，跳转到主页面
 						//QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("登录成功"), QMessageBox::Yes);
 						qDebug() << "login_succeed";  //输出：QJsonValue(string, "登录成功")
 						QJsonValue data_value = obj.take("data");
@@ -113,14 +115,26 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 						if (data_obj.contains("token"))
 						{
 							extern_token = data_obj.take("token").toString();
+							extern_certificationstate = data_obj.take("certificationState").toString();
 							idCode = data_obj.take("idCode").toString();
 							phone = data_obj.take("phoneNumber").toString();
 							tec_name = data_obj.take("name").toString();
-
-							qDebug() << "aab:tec_name:"<<tec_name;
-							if (extern_token != "") {
-								getCourses(extern_token);
+							//认证成功
+							if (extern_certificationstate == '1') {
+								accept();
+								qDebug() << "aab:tec_name:" << tec_name;
+								if (extern_token != "") {
+									getCourses(extern_token);
+								}
 							}
+							else if (extern_certificationstate == '2') {
+								QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("实名认证审核中，请耐心等待"), QMessageBox::Yes);
+							}
+							else {
+								FaceRec face;
+								face.exec();
+							}
+							
 
 						}
 						else {
@@ -187,7 +201,7 @@ void LoginClass::finishRequest(QNetworkReply* reply)
 						QJsonValue message_value = obj.take("message");
 						qDebug() << message_value << endl;
 						QString error_message = message_value.toString();
-						QMessageBox::warning(this, QString::fromLocal8Bit("提示"), error_message, QMessageBox::Yes);
+						QMessageBox::warning(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit(error_message.toLocal8Bit()), QMessageBox::Yes);
 					}
 				}
 				else {
