@@ -16,12 +16,13 @@ QJsonArray courseListData = { "abc" };
 QJsonArray courseStream = { "abc" };
 QString extern_token = "a";
 QString extern_certificationstate = '0';
-int clicked_row = 0;
+int clicked_row = 0; 
 QString extern_loginName = "a";
 QString extern_password = "a";
 QString idCode = "a";
 QString phone = "a";
 QString tec_name = "a";
+
 
 LoginClass::LoginClass(QWidget* parent)
 	: QDialog(parent)

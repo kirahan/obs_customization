@@ -101,7 +101,18 @@ void FaceRec::SavePicture()
         isSave = pixmap->save("../pictures/faceImage.png");
         if (isSave)
         {
-	    recognise();
+	    //
+		before_class();
+		if (extern_certificationstate == '0')
+		{
+			recognise();
+			qDebug() << "aaa:recognise" ;
+		}
+		else {
+			before_class();
+			qDebug() << "aaa:before_class";
+		}
+			
         }
     }
 }
@@ -120,7 +131,6 @@ void FaceRec::on_cameraType_activated(int index)
 void FaceRec::recognise()
 { 
 	QByteArray token_bytes = extern_token.toLocal8Bit();
-	phone = "18120416052";
 	qDebug() << "loginbtn clicked";
 	//ui.loginBtn->setDisabled(true);
 	//ui.loginBtn->setStyleSheet("background-color:grey;color:white");
@@ -187,6 +197,67 @@ void FaceRec::recognise()
 
 	}
 	
+}
+
+void FaceRec::before_class()
+{
+	QByteArray token_bytes = extern_token.toLocal8Bit();
+	QJsonObject courseData = courseStream.at(clicked_row).toObject();
+	QString chapterId = courseData.value("chapterId").toString();
+	QString curriculumTime = courseData.value("curriculumTime").toString();
+	
+
+	QJsonObject json;
+	json.insert("chapterId", chapterId);
+	json.insert("curriculumTime", chapterId);
+
+
+	QJsonDocument document;
+	document.setObject(json);
+
+	QByteArray byte_array = document.toJson(QJsonDocument::Compact);
+	QByteArray data;
+	data.append(byte_array);
+
+	QHttpMultiPart* multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+
+	/*添加文本到request*/
+	QHttpPart image_part;
+	QHttpPart text_part;
+	text_part.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"chapterId \""));
+	text_part.setBody(idCode.toLatin1());
+	multiPart->append(text_part);
+
+
+	text_part.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"chapterId \""));
+	text_part.setBody(tec_name.toLatin1());
+	multiPart->append(text_part);
+
+	/*添加图片到request*/
+
+	image_part.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/png"));//如果是png图片填image/png
+	image_part.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\";filename=\"faceImage.png\""));
+	QFile* file = new QFile("../pictures/faceImage.png");
+	file->open(QIODevice::ReadOnly);
+	image_part.setBodyDevice(file);
+	file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
+
+	//multiPart->append(text_part);
+	multiPart->append(image_part);
+
+	//request.setHeader(QNetworkRequest::ContentTypeHeader, "multipart/form-data");
+	request.setRawHeader("user-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36");
+	request.setRawHeader("enctype", "multipart/form-data");
+
+	request.setRawHeader("token", token_bytes);
+	request.setUrl(QUrl("https://ycary.cn:1083/zhiBoApi/Certification/lecturerNotarize_file"));
+
+	manager.post(request, multiPart);
+	connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishRequest(QNetworkReply*)));
+	//ui.loginBtn->setDisabled(true);
+
+	
+
 }
 
 void FaceRec::finishRequest(QNetworkReply* reply)

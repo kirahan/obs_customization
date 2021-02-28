@@ -212,7 +212,7 @@ void assignDockToggle(QDockWidget *dock, QAction *action)
 		      handleWindowToggle);
 	dock->connect(action, &QAction::toggled, handleMenuToggle);
 }
- 
+  
 extern void RegisterTwitchAuth(); 
 extern void RegisterRestreamAuth();
  

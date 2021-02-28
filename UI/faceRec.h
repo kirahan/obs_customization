@@ -35,6 +35,7 @@ class FaceRec : public QDialog
 	void on_cameraType_activated(int index);
 	void finishRequest(QNetworkReply*);
 	void Exit();
+	
 
     private:
         Ui::FaceRec *ui;
@@ -47,6 +48,7 @@ class FaceRec : public QDialog
         QCameraViewfinder* viewfinder;//摄像头取景器部件
         QCameraImageCapture *imageCapture;//截图部件
 	void recognise();
+	void before_class();
 
 };
 

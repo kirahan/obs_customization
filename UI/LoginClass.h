@@ -16,6 +16,7 @@ extern QString extern_password;
 extern QString idCode;
 extern QString phone;
 extern QString tec_name;
+extern QString is_login;
 
 class LoginClass : public QDialog
 {
