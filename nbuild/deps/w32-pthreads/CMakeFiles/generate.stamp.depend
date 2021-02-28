@@ -1,5 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/winrc/obs-module.rc.in
-C:/CubeNodeLTD/obs/2.25/obs-studio/deps/w32-pthreads/CMakeLists.txt
-C:/CubeNodeLTD/obs/2.25/obs-studio/deps/w32-pthreads/w32-pthreadsConfig.cmake.in
-C:/CubeNodeLTD/obs/2.25/obs-studio/deps/w32-pthreads/w32-pthreadsConfigVersion.cmake.in

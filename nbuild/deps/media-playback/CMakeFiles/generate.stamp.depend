@@ -1,6 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/CubeNodeLTD/obs/2.25/obs-studio/cmake/Modules/FindFFmpeg.cmake
-C:/CubeNodeLTD/obs/2.25/obs-studio/deps/media-playback/CMakeLists.txt
-C:/Program Files/CMake/share/cmake-3.18/Modules/FindPackageHandleStandardArgs.cmake
-C:/Program Files/CMake/share/cmake-3.18/Modules/FindPackageMessage.cmake
-C:/Program Files/CMake/share/cmake-3.18/Modules/FindPkgConfig.cmake
